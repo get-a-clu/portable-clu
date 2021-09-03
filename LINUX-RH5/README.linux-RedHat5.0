@@ -1,0 +1,4 @@
+
+Please note that the top level Makefile needs to have PLATFORM = linux-5
+for RedHat 5.0 (or later).
+

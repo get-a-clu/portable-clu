@@ -1,0 +1,16 @@
+0.README
+1.README.linux	--- Info about linux distributions
+2.INFO		--- This file
+3.Documents	--- CLU History paper, Syntax, PCLU documentation
+ALPHA		--- Antique
+DEC-MIPS	--- Antique
+HP		--- Antique
+LINUX		--- Antique
+LINUX-ELF	--- Antique
+LINUX-FC4	--- Antique
+LINUX-RH5	--- Antique
+LINUX-RH7	--- Recent
+MAC		--- Recent
+NETBSD		--- Antique
+SUN		--- Probably antique
+WINNT		--- Might be ok

@@ -1,0 +1,797 @@
+===================================================================
+RCS file: ./code/gc/RCS/setjmp_test.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 04:22:06
+--- 1.2	1995/02/12 05:56:21
+***************
+*** 1,7 ****
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/gc/RCS/setjmp_test.c,v 1.1 1995/02/12 04:22:06 ghudson Exp $";
+  #endif
+  /* $Log: setjmp_test.c,v $
+   * Revision 1.1  1995/02/12  04:22:06  ghudson
+   * Initial revision
+   *
+--- 1,10 ----
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/gc/RCS/setjmp_test.c,v 1.2 1995/02/12 05:56:21 ghudson Exp $";
+  #endif
+  /* $Log: setjmp_test.c,v $
++  * Revision 1.2  1995/02/12  05:56:21  ghudson
++  * Pass argument to longjmp() in addition to jump buffer.
++  *
+   * Revision 1.1  1995/02/12  04:22:06  ghudson
+   * Initial revision
+   *
+***************
+*** 41,47 ****
+  	}
+  	y++;
+  	x = 2;
+! 	if (y == 1) longjmp(b);
+  	return(0);
+  }
+  
+--- 44,50 ----
+  	}
+  	y++;
+  	x = 2;
+! 	if (y == 1) longjmp(b, 0);
+  	return(0);
+  }
+  
+===================================================================
+RCS file: ./code/gc/RCS/gc.h,v
+retrieving revision 1.1
+retrieving revision 1.4
+diff -c -r1.1 -r1.4
+*** 1.1	1995/02/12 04:23:51
+--- 1.4	1995/02/13 23:43:53
+***************
+*** 1,5 ****
+! /* $Header: /usr/scratch/clu/code/gc/RCS/gc.h,v 1.1 1995/02/12 04:23:51 ghudson Exp $
+   * $Log: gc.h,v $
+   * Revision 1.1  1995/02/12  04:23:51  ghudson
+   * Initial revision
+   *
+--- 1,14 ----
+! /* $Header: /usr/scratch/clu/code/gc/RCS/gc.h,v 1.4 1995/02/13 23:43:53 ghudson Exp $
+   * $Log: gc.h,v $
++  * Revision 1.4  1995/02/13  23:43:53  ghudson
++  * Reverse STACKTOP changes; fixed misc.c instead.
++  *
++  * Revision 1.3  1995/02/13  22:04:27  ghudson
++  * Increase NetBSD stacktop by 4 to account for first value on stack.
++  *
++  * Revision 1.2  1995/02/12  05:55:09  ghudson
++  * Define machine type and STACKTOP for NetBSD.
++  *
+   * Revision 1.1  1995/02/12  04:23:51  ghudson
+   * Initial revision
+   *
+***************
+*** 92,98 ****
+  #    define I386
+  #   define mach_type_known
+  # endif
+! 
+  
+  
+  /* Feel free to add more clauses here */
+--- 101,110 ----
+  #    define I386
+  #   define mach_type_known
+  # endif
+! # if defined(__NetBSD__) && defined(__i386__)
+! #    define I386
+! #    define mach_type_known
+! # endif
+  
+  
+  /* Feel free to add more clauses here */
+===================================================================
+RCS file: ./code/gc/RCS/misc.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/13 23:39:26
+--- 1.2	1995/02/13 23:43:33
+***************
+*** 1,7 ****
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/gc/RCS/misc.c,v 1.1 1995/02/13 23:39:26 ghudson Exp $";
+  #endif
+  /* $Log: misc.c,v $
+   * Revision 1.1  1995/02/13  23:39:26  ghudson
+   * Initial revision
+   *
+--- 1,10 ----
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/gc/RCS/misc.c,v 1.2 1995/02/13 23:43:33 ghudson Exp $";
+  #endif
+  /* $Log: misc.c,v $
++  * Revision 1.2  1995/02/13  23:43:33  ghudson
++  * Don't use masks on any I386 platform (changed "LINUX" to "I386").
++  *
+   * Revision 1.1  1995/02/13  23:39:26  ghudson
+   * Initial revision
+   *
+***************
+*** 475,481 ****
+  #   ifdef STACKTOP
+  	stacktop = STACKTOP;
+  #   else
+! #   if defined(MIPS) || defined(LINUX)
+  	stacktop = (word *)((long)(&dummy));
+  #   else
+  	stacktop = (word *)((((long)(&dummy)) + STACKTOP_ALIGNMENT_M1)
+--- 478,484 ----
+  #   ifdef STACKTOP
+  	stacktop = STACKTOP;
+  #   else
+! #   if defined(MIPS) || defined(I386)
+  	stacktop = (word *)((long)(&dummy));
+  #   else
+  	stacktop = (word *)((((long)(&dummy)) + STACKTOP_ALIGNMENT_M1)
+===================================================================
+RCS file: ./code/include/RCS/pclu_sys.h,v
+retrieving revision 1.1
+retrieving revision 1.1
+diff -c -r1.1 -r1.1
+===================================================================
+RCS file: ./code/sysasm/Opt/RCS/_chan.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 05:57:21
+--- 1.2	1995/02/12 06:25:58
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/sysasm/Opt/RCS/_chan.c,v 1.1 1995/02/12 05:57:21 ghudson Exp $";
+  #endif lint
+  /* $Log: _chan.c,v $
+   * Revision 1.1  1995/02/12  05:57:21  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/sysasm/Opt/RCS/_chan.c,v 1.2 1995/02/12 06:25:58 ghudson Exp $";
+  #endif lint
+  /* $Log: _chan.c,v $
++  * Revision 1.2  1995/02/12  06:25:58  ghudson
++  * Use SA_ONSTACK instead of SA_STACK on NetBSD.
++  *
+   * Revision 1.1  1995/02/12  05:57:21  ghudson
+   * Initial revision
+   *
+***************
+*** 71,76 ****
+--- 74,84 ----
+  #include <sgtty.h>
+  #endif
+  #include <sys/stat.h>
++ 
++ /* NetBSD has SA_ONSTACK but not SA_STACK.  Dunno what POSIX says. --GBH */
++ #ifndef SA_STACK
++ #define SA_STACK SA_ONSTACK
++ #endif
+  
+  extern char *index();
+  extern int errno;
+===================================================================
+RCS file: ./code/sysasm/Opt/RCS/util.c,v
+retrieving revision 1.1
+retrieving revision 1.3
+diff -c -r1.1 -r1.3
+*** 1.1	1995/02/12 06:06:13
+--- 1.3	1995/02/12 17:41:50
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/sysasm/Opt/RCS/util.c,v 1.1 1995/02/12 06:06:13 ghudson Exp $";
+  #endif lint
+  /* $Log: util.c,v $
+   * Revision 1.1  1995/02/12  06:06:13  ghudson
+   * Initial revision
+   *
+--- 2,16 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/sysasm/Opt/RCS/util.c,v 1.3 1995/02/12 17:41:50 ghudson Exp $";
+  #endif lint
+  /* $Log: util.c,v $
++  * Revision 1.3  1995/02/12  17:41:50  ghudson
++  * Avoid sigstack() for both NetBSD and Linux.
++  *
++  * Revision 1.2  1995/02/12  06:24:13  ghudson
++  * sys_errlist declaration needs const qualifiers under NetBSD.
++  *
+   * Revision 1.1  1995/02/12  06:06:13  ghudson
+   * Initial revision
+   *
+***************
+*** 53,58 ****
+--- 59,68 ----
+  #include "pclu_err.h"
+  #include "pclu_sys.h"
+  
++ #if defined(LINUX) || defined(__NetBSD__)
++ #define SKIP_SIGSTACK
++ #endif
++ 
+  extern void find_ops_init();
+  extern void find_selops_init();
+  extern void expand_hp();
+***************
+*** 112,118 ****
+  char **_argv, **_envp;
+  {
+  errcode err, pgmerr;
+! #ifndef LINUX
+  struct sigstack ss, oss;
+  #endif
+  OWNPTR save_own_ptr;
+--- 122,128 ----
+  char **_argv, **_envp;
+  {
+  errcode err, pgmerr;
+! #ifndef SKIP_SIGSTACK
+  struct sigstack ss, oss;
+  #endif
+  OWNPTR save_own_ptr;
+***************
+*** 169,175 ****
+  
+  /* set up stack for signal handlers */
+  
+! #ifndef LINUX
+  	ss.ss_onstack = 1;
+  	ss.ss_sp = (char *)gc_malloc(100);
+  	sigstack(&ss, &oss);
+--- 179,185 ----
+  
+  /* set up stack for signal handlers */
+  
+! #ifndef SKIP_SIGSTACK
+  	ss.ss_onstack = 1;
+  	ss.ss_sp = (char *)gc_malloc(100);
+  	sigstack(&ss, &oss);
+***************
+*** 289,295 ****
+--- 299,309 ----
+  	}
+  #endif
+  
++ #ifdef __NetBSD__
++ extern const char *const sys_errlist[];
++ #else
+  extern char *sys_errlist[];
++ #endif
+  extern int sys_nerr;
+  extern long clu_nerr;
+  
+***************
+*** 356,362 ****
+  char * temp;
+  CLUREF temp_str, sz;
+  
+! 	temp = sys_errlist[num];
+  	sz.num = strlen(temp);
+  	stringOPcons(temp, CLU_1, sz, &temp_str);
+  	return(temp_str);
+--- 370,376 ----
+  char * temp;
+  CLUREF temp_str, sz;
+  
+! 	temp = (char *) sys_errlist[num];
+  	sz.num = strlen(temp);
+  	stringOPcons(temp, CLU_1, sz, &temp_str);
+  	return(temp_str);
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_get_runtime.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:18:55
+--- 1.2	1995/02/12 06:27:34
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_get_runtime.c,v 1.1 1995/02/12 06:18:55 ghudson Exp $";
+  #endif lint
+  /* $Log: _get_runtime.c,v $
+   * Revision 1.1  1995/02/12  06:18:55  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_get_runtime.c,v 1.2 1995/02/12 06:27:34 ghudson Exp $";
+  #endif lint
+  /* $Log: _get_runtime.c,v $
++  * Revision 1.2  1995/02/12  06:27:34  ghudson
++  * NetBSD needs <sys/types.h> before <sys/resource.h>.
++  *
+   * Revision 1.1  1995/02/12  06:18:55  ghudson
+   * Initial revision
+   *
+***************
+*** 26,31 ****
+--- 29,35 ----
+  /*			_get_runtime		*/
+  /*						*/
+  
++ #include <sys/types.h>
+  #include <sys/time.h>
+  #include <sys/resource.h>
+  #undef signal
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_job.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:21:27
+--- 1.2	1995/02/12 06:28:04
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_job.c,v 1.1 1995/02/12 06:21:27 ghudson Exp $";
+  #endif lint
+  /* $Log: _job.c,v $
+   * Revision 1.1  1995/02/12  06:21:27  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_job.c,v 1.2 1995/02/12 06:28:04 ghudson Exp $";
+  #endif lint
+  /* $Log: _job.c,v $
++  * Revision 1.2  1995/02/12  06:28:04  ghudson
++  * Use SA_ONSTACK instead of SA_STACK on NetBSD.
++  *
+   * Revision 1.1  1995/02/12  06:21:27  ghudson
+   * Initial revision
+   *
+***************
+*** 45,50 ****
+--- 48,58 ----
+  #include <sys/time.h>
+  #include <sys/resource.h>
+  #include <fcntl.h>
++ 
++ /* NetBSD has SA_ONSTACK but not SA_STACK.  Dunno what POSIX says. --GBH */
++ #ifndef SA_STACK
++ #define SA_STACK SA_ONSTACK
++ #endif
+  
+  extern errcode _jobOPcons0();
+  extern errcode _jobOPcone0();
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_rusage.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:26:13
+--- 1.2	1995/02/12 06:28:50
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_rusage.c,v 1.1 1995/02/12 06:26:13 ghudson Exp $";
+  #endif lint
+  /* $Log: _rusage.c,v $
+   * Revision 1.1  1995/02/12  06:26:13  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_rusage.c,v 1.2 1995/02/12 06:28:50 ghudson Exp $";
+  #endif lint
+  /* $Log: _rusage.c,v $
++  * Revision 1.2  1995/02/12  06:28:50  ghudson
++  * NetBSD needs <sys/types.h> before <sys/resource.h>.
++  *
+   * Revision 1.1  1995/02/12  06:26:13  ghudson
+   * Initial revision
+   *
+***************
+*** 23,28 ****
+--- 26,32 ----
+  /*			_rusage		*/
+  /*						*/
+  
++ #include <sys/types.h>
+  #include <sys/time.h>
+  #include <sys/resource.h>
+  #undef signal
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_select.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:30:02
+--- 1.2	1995/02/12 06:31:52
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_select.c,v 1.1 1995/02/12 06:30:02 ghudson Exp $";
+  #endif lint
+  /* $Log: _select.c,v $
+   * Revision 1.1  1995/02/12  06:30:02  ghudson
+   * Initial revision
+   *
+--- 2,14 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_select.c,v 1.2 1995/02/12 06:31:52 ghudson Exp $";
+  #endif lint
+  /* $Log: _select.c,v $
++  * Revision 1.2  1995/02/12  06:31:52  ghudson
++  * NetBSD needs <sys/select.h> for fd_set, and <sys/types.h> before
++  * <sys/select.h>.
++  *
+   * Revision 1.1  1995/02/12  06:30:02  ghudson
+   * Initial revision
+   *
+***************
+*** 26,32 ****
+--- 30,38 ----
+  			now type-checks cleanly
+  */
+  
++ #include <sys/types.h>
+  #include <sys/time.h>
++ #include <sys/select.h>
+  #include <errno.h>
+  #undef signal
+  #include "pclu_err.h"
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_set_limit.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:32:33
+--- 1.2	1995/02/12 06:33:27
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_set_limit.c,v 1.1 1995/02/12 06:32:33 ghudson Exp $";
+  #endif lint
+  /* $Log: _set_limit.c,v $
+   * Revision 1.1  1995/02/12  06:32:33  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_set_limit.c,v 1.2 1995/02/12 06:33:27 ghudson Exp $";
+  #endif lint
+  /* $Log: _set_limit.c,v $
++  * Revision 1.2  1995/02/12  06:33:27  ghudson
++  * NetBSD needs <sys/types.h> before <sys/resource.h>.
++  *
+   * Revision 1.1  1995/02/12  06:32:33  ghudson
+   * Initial revision
+   *
+***************
+*** 23,28 ****
+--- 26,32 ----
+  /*			_set_limit		*/
+  /*						*/
+  
++ #include <sys/types.h>
+  #include <sys/time.h>
+  #include <sys/resource.h>
+  #undef signal
+===================================================================
+RCS file: ./code/libasm/Opt/RCS/_signal.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 06:33:44
+--- 1.2	1995/02/12 06:35:03
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_signal.c,v 1.1 1995/02/12 06:33:44 ghudson Exp $";
+  #endif lint
+  /* $Log: _signal.c,v $
+   * Revision 1.1  1995/02/12  06:33:44  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/code/libasm/Opt/RCS/_signal.c,v 1.2 1995/02/12 06:35:03 ghudson Exp $";
+  #endif lint
+  /* $Log: _signal.c,v $
++  * Revision 1.2  1995/02/12  06:35:03  ghudson
++  * Use SA_ONSTACK instead of SA_STACK under NetBSD.
++  *
+   * Revision 1.1  1995/02/12  06:33:44  ghudson
+   * Initial revision
+   *
+***************
+*** 36,41 ****
+--- 39,49 ----
+  
+  #include <sys/types.h>
+  #include <sys/dir.h>
++ 
++ /* NetBSD has SA_ONSTACK but not SA_STACK.  Dunno what POSIX says. */
++ #ifndef SA_STACK
++ #define SA_STACK SA_ONSTACK
++ #endif
+  
+  extern CLUREF clu_empty_string;
+  extern char **environ;
+===================================================================
+RCS file: ./debug/RCS/util.c,v
+retrieving revision 1.1
+retrieving revision 1.3
+diff -c -r1.1 -r1.3
+*** 1.1	1995/02/12 16:48:48
+--- 1.3	1995/02/12 19:38:27
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/debug/RCS/util.c,v 1.1 1995/02/12 16:48:48 ghudson Exp $";
+  #endif lint
+  /* $Log: util.c,v $
+   * Revision 1.1  1995/02/12  16:48:48  ghudson
+   * Initial revision
+   *
+--- 2,16 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/debug/RCS/util.c,v 1.3 1995/02/12 19:38:27 ghudson Exp $";
+  #endif lint
+  /* $Log: util.c,v $
++  * Revision 1.3  1995/02/12  19:38:27  ghudson
++  * Avoid sigstack() on both Linux and NetBSD.
++  *
++  * Revision 1.2  1995/02/12  17:41:07  ghudson
++  * NetBSD needs const qualifiers on sys_errlist.
++  *
+   * Revision 1.1  1995/02/12  16:48:48  ghudson
+   * Initial revision
+   *
+***************
+*** 56,61 ****
+--- 62,71 ----
+  #include "pclu_err.h"
+  #include "pclu_sys.h"
+  
++ #if defined(LINUX) || defined(__NetBSD__)
++ #define SKIP_SIGSTACK
++ #endif
++ 
+  #ifdef CLU_DEBUG
+  #undef signal
+  #define signal(x) return(x)
+***************
+*** 122,128 ****
+  char **_argv, **_envp;
+  {
+  errcode err, pgmerr;
+! #ifndef LINUX
+  struct sigstack ss, oss;
+  #endif
+  OWNPTR save_own_ptr;
+--- 132,138 ----
+  char **_argv, **_envp;
+  {
+  errcode err, pgmerr;
+! #ifndef SKIP_SIGSTACK
+  struct sigstack ss, oss;
+  #endif
+  OWNPTR save_own_ptr;
+***************
+*** 181,187 ****
+  
+  /* set up stack for signal handlers */
+  
+! #ifndef LINUX
+  	ss.ss_onstack = 1;
+  	ss.ss_sp = (char *)gc_malloc(100);
+  	sigstack(&ss, &oss);
+--- 191,197 ----
+  
+  /* set up stack for signal handlers */
+  
+! #ifndef SKIP_SIGSTACK
+  	ss.ss_onstack = 1;
+  	ss.ss_sp = (char *)gc_malloc(100);
+  	sigstack(&ss, &oss);
+***************
+*** 317,323 ****
+--- 327,337 ----
+  	}
+  #endif
+  
++ #ifdef __NetBSD__
++ extern const char *const sys_errlist[];
++ #else
+  extern char *sys_errlist[];
++ #endif
+  extern int sys_nerr;
+  extern long clu_nerr;
+  
+===================================================================
+RCS file: ./debug/RCS/_signal.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 16:51:59
+--- 1.2	1995/02/12 17:40:38
+***************
+*** 2,10 ****
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/debug/RCS/_signal.c,v 1.1 1995/02/12 16:51:59 ghudson Exp $";
+  #endif lint
+  /* $Log: _signal.c,v $
+   * Revision 1.1  1995/02/12  16:51:59  ghudson
+   * Initial revision
+   *
+--- 2,13 ----
+  /* Copyright Massachusetts Institute of Technology 1990,1991 */
+  
+  #ifndef lint
+! static char rcsid[] = "$Header: /usr/scratch/clu/debug/RCS/_signal.c,v 1.2 1995/02/12 17:40:38 ghudson Exp $";
+  #endif lint
+  /* $Log: _signal.c,v $
++  * Revision 1.2  1995/02/12  17:40:38  ghudson
++  * Use SA_ONSTACK instead of SA_STACK on NetBSD.
++  *
+   * Revision 1.1  1995/02/12  16:51:59  ghudson
+   * Initial revision
+   *
+***************
+*** 36,41 ****
+--- 39,49 ----
+  
+  #include <sys/types.h>
+  #include <sys/dir.h>
++ 
++ /* NetBSD has SA_ONSTACK but not SA_STACK.  Dunno what POSIX says. */
++ #ifndef SA_STACK
++ #define SA_STACK SA_ONSTACK
++ #endif
+  
+  extern CLUREF clu_empty_string;
+  extern char **environ;
+===================================================================
+RCS file: ./driver/RCS/driver.c,v
+retrieving revision 1.1
+retrieving revision 1.3
+diff -c -r1.1 -r1.3
+*** 1.1	1995/02/12 18:43:29
+--- 1.3	1995/02/12 19:34:51
+***************
+*** 16,24 ****
+--- 16,26 ----
+  
+  #include "proto.h"
+  
++ #ifndef __NetBSD__
+  extern char* getenv ARGS((char*));
+  extern int   setenv ARGS((char*, char*, int));
+  extern int   system ARGS((char*));
++ #endif
+  
+  extern int unlink ARGS((char*));
+  
+***************
+*** 729,735 ****
+--- 731,741 ----
+      Buffer* buffer = Buffer_create();
+  
+      Buffer_append(buffer, C_COMPILER);
++ #ifndef __NetBSD__
+      if (!options->prof) Buffer_append(buffer, " -x ");
++ #else
++     if (!options->prof) ;
++ #endif
+      else Buffer_append(buffer, " -p ");
+      Buffer_append(buffer, " -o ");
+      Buffer_append(buffer, options->program);
+===================================================================
+RCS file: ./exe/RCS/plink,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -r1.1 -r1.2
+*** 1.1	1995/02/12 16:58:20
+--- 1.2	1995/02/12 17:39:47
+***************
+*** 5,13 ****
+  opt=
+  syms=
+  usage="Usage: plink <object file> ... [-o outputfile | ^outputfile]"
+  if [ $# = 0 ]; then echo $usage; exit 2; fi
+! #CLUHOME=${CLUHOME-/mit/PCLU/decmipslib}
+! # Use $HOSTTYPE or something instead of `decmips'?
+  while [ $# != 0 ];
+  do
+      case "$1" in
+--- 5,22 ----
+  opt=
+  syms=
+  usage="Usage: plink <object file> ... [-o outputfile | ^outputfile]"
++ 
++ if [ x$hosttype = x ]; then
++ 	hosttype=`/bin/athena/machtype`
++ fi
++ if [ $hosttype != inbsd ]; then
++ 	libbsd=-lbsd
++ fi
++ 
+  if [ $# = 0 ]; then echo $usage; exit 2; fi
+! #For new binary placement convention (not yet commonplace enough):
+! #CLUHOME=${CLUHOME-/mit/PCLU/arch/${ATHENA_SYS}/lib}
+! CLUHOME=${CLUHOME-/mit/PCLU/${hosttype}lib}
+  while [ $# != 0 ];
+  do
+      case "$1" in
+***************
+*** 28,40 ****
+  done
+  if [ -n "$opt" ] ; then
+      if [ -n "$verbose" ]; then
+!         echo cc $syms -o $output $files -L$CLUHOME/code -lpclu_opt -lm -lbsd
+      fi
+!     cc $syms -o $output $files -L$CLUHOME/code -lpclu_opt -lm -lbsd
+      exit;
+  fi
+  if [ -n "$verbose" ]; then
+!     echo cc $syms -o $output $files -L$CLUHOME/code -lpclu -lm -lbsd
+  fi
+! cc $syms -o $output $files -L$CLUHOME/code -lpclu -lm -lbsd
+  
+--- 37,49 ----
+  done
+  if [ -n "$opt" ] ; then
+      if [ -n "$verbose" ]; then
+!         echo cc $syms -o $output $files -L$CLUHOME/code -lpclu_opt -lm $libbsd
+      fi
+!     cc $syms -o $output $files -L$CLUHOME/code -lpclu_opt -lm $libbsd
+      exit;
+  fi
+  if [ -n "$verbose" ]; then
+!     echo cc $syms -o $output $files -L$CLUHOME/code -lpclu -lm $libbsd
+  fi
+! cc $syms -o $output $files -L$CLUHOME/code -lpclu -lm $libbsd
+  

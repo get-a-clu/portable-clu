@@ -1,0 +1,7 @@
+
+HP users will want to get _chan.patch and apply it to
+~CLU/code/sysasm/Opt/_chan.c.   This patch causes ctrl-D
+to be echoed as ^D, rather than as ^.
+
+D. Curtis 2/11/98
+

@@ -1,0 +1,16 @@
+Please use LINUX-RH7.tar.gz for Redhat 7.0.
+
+For earlier versions, try LINUX-ELF.tar.gz.
+Please note that the top level Makefile needs to have PLATFORM = linux-5
+for RedHat 5.0 (or later).
+
+LINUX.tar.gz is the old a.out format.  (Probably you don't want this any more!)
+
+Some of the old Linux distributions are missing the documentation.
+Please get doc.tar.gz if you need it.
+
+The default size of the heap is adjustable in the file ~CLU/code/gc/misc.c.
+Either change it before building the distribution or change it, run
+make veryclean, and then make.
+
+

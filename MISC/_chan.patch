@@ -1,0 +1,14 @@
+293a294
+>               termbuf.c_lflag |= ISIG;
+386a388
+>               termbuf.c_lflag |= ISIG;
+792a795
+>               termbuf.c_lflag |= ISIG;
+919a920
+> char junk[2];
+930a932
+>       junk[0] = i.num;
+932c934
+<               result = write(ch->wr.num, &i.num, 1);
+---
+>               result = write(ch->wr.num, junk, 1);

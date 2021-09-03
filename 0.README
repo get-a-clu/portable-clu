@@ -1,0 +1,52 @@
+
+PCLU is a portable version of CLU.
+
+DEBIAN PACKAGE
+--------------
+Through the kind efforts of Steve Garland, a debian package for portable CLU
+was created
+DEBIAN/pclu-debian.tar.gz
+
+RELATIVELY RECENT RELEASES
+--------------------------
+MAC/pclu.imac.leopard.tgz  06/25/09  For MAC OS X.
+LINUX-FC4	2004  should run on most linux platforms.
+
+POSSIBLY USEFUL RELEASES
+------------------------
+pclu-imac.tar.gz is a updated release, as of 10/12/07.  This is the
+first release to run on a MAC platform.  LP builds and runs.
+
+WINNT.tar.gz contains a port for Windows NT.  Many thanks to Michael
+Schroeter for doing this port!  (Needs cygwin.  Notes within distribution.
+More installation clues may come soon.) 1/1/2000
+
+PROBABLY ANTIQUES
+-----------------
+LINUX-FC4.tar.gz is a updated release, as of 3/19/06.  This release adds
+minor changes to the 8/25/05 release and now lp builds.
+
+SOLARIS.tar.gz runs on Sun machines with the Solaris operating system.  This
+is a new release as of 6/9/98.
+
+SPARC.tar.Z contains a release for the Sparc/SunOS architecture.
+
+HP.tar.gz contains a release of PCLU for HPs.
+
+LINUX-RH7.tar.gz runs on Linux RedHat 7.0.  Release date: 2/28/2001.
+
+LINUX-ELF.tar.gz runs on Linux ELF systems.  It is a new release
+as of 4/10/98.
+
+LINUX.tar.gz contains a release of PCLU for Linux. This works with
+linux systems that have a.out compatibility.
+
+ALPHA.tar.gz runs on Digital Alpha machines with OSF/1 (aka Digital Unix).
+(Tested under 3.2C.)  Includes fix to work with C compilers that can't
+deal with very long identifiers.
+
+DEC-MIPS.tar.Z contains the latest release as of 11/18/93.
+This works on dec-mips.
+
+For further information, contact dcurtis@csail.mit.edu.
+

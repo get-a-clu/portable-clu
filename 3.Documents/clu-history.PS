@@ -1,0 +1,4935 @@
+%!PS-Adobe-1.0
+%%Title: new-clu-history-4.mss
+%%DocumentFonts: (atend)
+%%Creator: Dorothy Curtis,531T,x3-0541 and Scribe 5(1501)
+%%CreationDate: 16 April 1996 10:30
+%%Pages: (atend)
+%%EndComments
+%
+% The following enables some Outline fonts -Bede
+% Trivially adapted from the Adobe Cookbook
+%
+/makeoutlinedict 7 dict def
+/MakeOutlineFont
+ {makeoutlinedict begin
+  /uniqueid exch def
+  /strokewidth exch def
+  /newfontname exch def
+  /basefontname exch def
+  /basefontdict basefontname findfont def
+  /numentries basefontdict maxlength 1 add def
+  basefontdict /UniqueID known not
+  {/numentries numentries 1 add def} if
+  /outfontdict numentries dict def
+  basefontdict
+   {exch dup /FID ne
+     {exch outfontdict 3 1 roll put}
+     {pop pop}
+     ifelse
+   } forall
+  outfontdict /FontName newfontname put
+  outfontdict /PaintType 2 put
+  outfontdict /StrokeWidth strokewidth put
+  outfontdict /UniqueID uniqueid put
+  newfontname outfontdict definefont pop
+  end
+ } def
+/Times-Bold /Times-Outline 1000 24 div
+/Times-Bold findfont dup /UniqueID known
+ {/UniqueID get 1 add}
+ {pop 1}
+ ifelse
+MakeOutlineFont
+/Times-Italic /TimesItalic-Outline 1000 24 div
+/Times-Italic findfont dup /UniqueID known
+ {/UniqueID get 1 add}
+ {pop 1}
+ ifelse
+MakeOutlineFont
+/Helvetica-Bold /Helvetica-Outline 1000 24 div
+/Helvetica-Bold findfont dup /UniqueID known
+ {/UniqueID get 1 add}
+ {pop 1}
+ ifelse
+MakeOutlineFont
+/Symbol /Symbol-Outline 1000 24 div
+/Symbol findfont dup /UniqueID known
+ {/UniqueID get 1 add}
+ {pop 1}
+ ifelse
+MakeOutlineFont
+%
+% End of outline font definitions
+%
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def translate 100.0 -100.0 scale pop} bind def
+/PE {PV restore} bind def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+%%EndProlog
+%%Page: 0 1 
+BS
+0 SI
+13 /Helvetica-Bold AF
+25400 8148 MT
+(A History of CLU)SH
+10 /Helvetica AF
+27265 12778 MT
+(Barbara Liskov)SH
+23236 15064 MT
+(Laboratory for Computer Science)SH
+22096 16207 MT
+(Massachusetts Institute of Technology)SH
+25459 17350 MT
+(Cambridge, MA  02139)SH
+27320 18493 MT
+(\050617\051253-5886)SH
+26453 19636 MT
+(liskov@lcs.mit.edu)SH
+28516 21922 MT
+(April l992)SH
+/Helvetica-Bold SF
+26377 28531 MT
+(Table of Contents)SH
+/Helvetica SF
+14400 30214 MT
+(Section 1)SH
+20160 XM
+(Introduction)SH
+14400 32500 MT
+(Section 2)SH
+20160 XM
+(Data Abstraction)SH
+14400 34786 MT
+(Section 3)SH
+20160 XM
+(CLU)SH
+14400 37072 MT
+(Section 4)SH
+20160 XM
+(Evaluation)SH
+/Helvetica-Bold SF
+28572 42738 MT
+(Abstract)SH
+/Helvetica SF
+8312 44421 MT
+(The idea of a data abstraction)
+234 W( has had a significant impact on the development of programming)233 W
+7200 45564 MT
+(languages and)
+42 W( on programming methodology.  CLU was the first implemented programming language to)43 W
+7200 46707 MT
+(provide direct linguistic support for data abstraction.  This paper provides a history of data abstraction and)7 W
+7200 47850 MT
+(CLU. CLU)
+300 W( contains a number of other interesting and influential features, including its)
+11 W( exception handling)12 W
+8 SS 
+30875 48647 MT
+(1)SH
+10 SS 
+7200 48998 MT
+(mechanism, its iterators, and its parameterized types.)SH
+12 /Helvetica-Bold AF
+7200 52753 MT
+(1. Introduction)SH
+10 /Helvetica AF
+8312 53896 MT
+(The idea of a data)
+40 W( abstraction arose from work on programming methodology.  It has had a significant)39 W
+7200 55039 MT
+(impact on the way modern software systems are)
+114 W( designed and organized and on the features that are)115 W
+7200 56182 MT
+(provided in modern programming languages.  In the early and mid l970's, it led to the development of new)SH
+7200 57325 MT
+(programming languages, most notably CLU and Alphard.  These language)
+98 W( designs were undertaken to)99 W
+7200 58468 MT
+(flesh out the idea and to provide direct support for new techniques for developing software.)SH
+8312 60752 MT
+(This paper provides a history of CLU and data abstraction.  CLU provides)
+115 W( linguistic support for data)114 W
+7200 61895 MT
+(abstraction; it was the first implemented language to)
+129 W( do so.  In addition, it contains a number of other)130 W
+7200 63038 MT
+(interesting and influential features, including its exception)
+260 W( handling mechanism, its iterators, and its)259 W
+7200 64181 MT
+(parameterized types.)SH
+10800 50 7200 68384 UL
+6 SS 
+8090 69779 MT
+(1)SH
+8 SS 
+8424 70092 MT
+(This research was supported in)
+70 W( part by the Advanced Research Projects Agency of the Department of Defense, monitored by)69 W
+7200 71046 MT
+(the Office)
+270 W( of Naval Research under contract N00014-89-J-1988, in part by the National Science Foundation under Grant)271 W
+7200 72000 MT
+(CCR-8822158, and in part by the NEC Corporation of Tokyo, Japan.)SH
+ES
+%%Page: 1 2 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(1)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+8312 7929 MT
+(The paper is organized as)
+206 W( follows.  Section 2 describes the work that led to the concept of data)207 W
+7200 9072 MT
+(abstraction and how this concept came into existence.  It also describes the)
+131 W( beginning of the work on)130 W
+7200 10215 MT
+(CLU, and)
+240 W( discusses some of the later work on programming methodology that was based on data)241 W
+7200 11358 MT
+(abstraction. Section)
+376 W( 3 provides a history of the CLU development process,)
+49 W( with emphasis on the design)48 W
+7200 12501 MT
+(issues related to the technical features of CLU;)
+62 W( the section contains material about related work in other)63 W
+7200 13644 MT
+(languages as well.  The paper concludes with an evaluation of CLU and a discussion of its)
+68 W( influence on)67 W
+7200 14787 MT
+(programming languages and methodology.)SH
+12 /Helvetica-Bold AF
+7200 18542 MT
+(2. Data Abstraction)SH
+10 /Helvetica AF
+8312 19685 MT
+(In my early work on data abstraction,)
+141 W( in the latter part of 1972 through the summer of l973 , I was)142 W
+7200 20828 MT
+(concerned with figuring out what the concept was, rather than designing a full programming language.)127 W
+7200 21971 MT
+(This section traces the development of)
+155 W( the concept and describes the environment in which the work)156 W
+7200 23114 MT
+(occurred and the related work that was going on at that time.)SH
+8312 25398 MT
+(A data abstraction, or abstract data type, is a set of objects and operations.  Programs)
+34 W( that access the)33 W
+7200 26541 MT
+(objects can do so only by calling the operations,)
+21 W( which provide means to observe an object's state and to)22 W
+7200 27684 MT
+(modify it.  The objects contain within)
+84 W( them a storage representation that is used to store their state, but)83 W
+7200 28827 MT
+(this representation is encapsulated:  it)
+202 W( is not visible to programs that use the data abstraction.  For)203 W
+7200 29970 MT
+(example, a set of integers type might have operations)
+226 W( to create an empty set, to insert and delete)225 W
+7200 31113 MT
+(elements from a set, to)
+24 W( determine the cardinality of a set, and to determine whether a particular integer is)25 W
+7200 32256 MT
+(a member of a set.  A)
+69 W( set might be represented by an array or a linked list, but since users can interact)68 W
+7200 33399 MT
+(with it only by calling operations, the particular representation is not visible.)
+3 W( One)
+286 W( important benefit of such)4 W
+7200 34542 MT
+(encapsulation is that it allows decisions about implementation to be changed without any)
+52 W( need to modify)51 W
+7200 35685 MT
+(programs that use the data abstraction.)SH
+8312 37969 MT
+(The idea of a data abstraction developed in the early seventies.  It grew out of work on)
+74 W( programming)75 W
+7200 39112 MT
+(methodology. At)
+458 W( that time, there was a great deal of)
+90 W( interest in methods for improving the efficiency of)89 W
+7200 40255 MT
+(the programming process and also the)
+281 W( quality of the product.  There were two main approaches:)282 W
+7200 41398 MT
+(structured programming,)
+146 W( and modularity.  Structured programming)
+145 W( [Dijkstra,)
+SH( 1969] was concerned with)145 W
+7200 42541 MT
+(program correctness \050or reliability, as it was called in those days\051:)SH
+9 SS 
+9200 43991 MT
+(The goal of structured programming is to produce program structures which are amenable to proofs of)150 W
+9200 45040 MT
+(correctness. The)
+262 W( proof of a)
+6 W( structured program is broken down into proofs of the correctness of each of the)5 W
+9200 46089 MT
+(components. Before)
+412 W( a component is coded, a specification exists explaining its input)
+81 W( and output and the)82 W
+9200 47138 MT
+(function which it is supposed to perform [Liskov, 1972a, p. 193].)SH
+10 SS 
+7200 48661 MT
+(Not using gotos)
+129 W( [Dijkstra,)
+SH( 1968a] was a part)
+129 W( of structured programming because the resulting program)128 W
+7200 49804 MT
+(structures were)
+97 W( easier to reason about, but the idea of reasoning about the program at one level using)98 W
+7200 50947 MT
+(specifications of lower level)
+1 W( components was much more fundamental.  The notion of stepwise refinement)SH
+7200 52090 MT
+(as an approach to constructing programs was also a part of this movement [Wirth, 1971].)SH
+8312 54374 MT
+(The work on modularity)
+83 W( [Liskov,)
+SH( 1972a; Parnas, 1971; Parnas, 1972a; Randell,)
+83 W( 1969] was concerned)84 W
+7200 55517 MT
+(with what program components should be like.  For example, I proposed the idea of)SH
+/Helvetica-Oblique SF
+44384 XM
+(partitions)SH
+/Helvetica SF
+(:)SH
+9 SS 
+9200 56967 MT
+(The system is divided into a hierarchy of partitions, where each partition represents one level of abstraction,)SH
+9200 58016 MT
+(and consists of one or)
+257 W( more functions which share common resources.)
+258 W( . . . The)
+SH( connections in data)258 W
+9200 59065 MT
+(between partitions are limited to the explicit arguments passed from the)
+116 W( functions of one partition to the)115 W
+9200 60114 MT
+(\050external\051 functions of another partition.  Implicit)
+228 W( interaction on common data may only occur among)229 W
+9200 61163 MT
+(functions within a partition [Liskov, 1972a, p. 195].)SH
+10 SS 
+7200 62686 MT
+(This notion of partitions was based on Dijkstra's ideas about levels of abstraction)
+4 W( [Dijkstra,)
+SH( 1968b])
+4 W( and my)3 W
+7200 63829 MT
+(own work on the Venus operating system)
+226 W( [Liskov,)
+SH( 1972b].  Venus was organized as a collection of)226 W
+7200 64972 MT
+(partitions, each with externally accessible functions and hidden state information, which)
+5 W( communicated by)4 W
+7200 66115 MT
+(calling one another's functions.)SH
+8312 68399 MT
+(The papers on programming methodology were concerned)
+236 W( with system structure rather than with)237 W
+7200 69542 MT
+(programming language mechanisms.  They provided guidelines)
+61 W( that programmers could use to organize)60 W
+7200 70685 MT
+(programs but did not describe)
+39 W( any programming language constructs that would help in the organization.)40 W
+7200 71828 MT
+(The work on data abstraction arose)
+47 W( from an effort to bridge this gap.  Data abstraction merged the ideas)46 W
+ES
+%%Page: 2 3 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(2)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(of modularity and encapsulation with programming languages by relating encapsulated modules to data)88 W
+7200 9072 MT
+(types. As)
+406 W( a result, programming languages that provided direct support for)
+64 W( modular programming came)63 W
+7200 10215 MT
+(into existence, and a much clearer notion of what a module is emerged.)SH
+8312 12499 MT
+(By the fall of l972, I had become dissatisfied with)
+70 W( the papers on programming methodology, including)71 W
+7200 13642 MT
+(my own, because I believed it was hard for readers to apply the)
+31 W( notions to their own programs.  The idea)30 W
+7200 14785 MT
+(of a module was somewhat nebulous in these papers \050some operations with)
+115 W( hidden state information\051.)116 W
+7200 15928 MT
+(Even less obvious was how to do modular design.)
+16 W( The)
+308 W( designer was supposed to identify modules, but it)15 W
+7200 17071 MT
+(was not at all)
+122 W( clear how this was to be done, and the papers provided relatively little guidance on this)123 W
+7200 18214 MT
+(crucial point.)SH
+8312 20498 MT
+(I noticed that many of the modules discussed in)
+122 W( the papers on modularity were defining data types.)121 W
+7200 21641 MT
+(For example, I had suggested that designers look for abstractions that hid)
+83 W( the details of interacting with)84 W
+7200 22784 MT
+(various hardware resources, and that)
+60 W( hid the storage details of data structures)
+59 W( [Liskov,)
+SH( 1972a].  This led)59 W
+7200 23927 MT
+(me to think of linking modules to data)
+271 W( types and eventually to the idea of abstract types with an)272 W
+7200 25070 MT
+(encapsulated representation and operations that could be)
+67 W( used to access and manipulate the objects.  I)66 W
+7200 26213 MT
+(thought that)
+140 W( programmers would have an easier time doing modular design in terms of abstract types)141 W
+7200 27356 MT
+(\050instead of just looking for modules\051 because this was similar to deciding about)
+49 W( data structures, and also)48 W
+7200 28499 MT
+(because the notion of an abstract type could be defined precisely.  I)
+99 W( referred to the types as "abstract")100 W
+7200 29642 MT
+(because they aren't provided directly)
+104 W( by a programming language but instead must be implemented by)103 W
+7200 30785 MT
+(the user.  An abstract type is abstract in the same way that a procedure is an abstract operation.)SH
+8312 33069 MT
+(I gave a talk)
+122 W( [Liskov,)
+SH( 1973a] on abstract data types at a workshop on Programming Languages)
+122 W( and)123 W
+7200 34212 MT
+(Operating Systems held in Savannah on April 9-12, l973.  This talk merged the ideas)
+219 W( of structured)218 W
+7200 35355 MT
+(programming and modularity by relating the components of a structured program to either abstract)261 W
+7200 36498 MT
+(operations \050implemented by procedures\051 or abstract types.  An abstract type provides)SH
+9 SS 
+9200 37948 MT
+(a group of related functions whose joint actions completely define the abstraction as far as its)
+106 W( users are)105 W
+9200 38997 MT
+(concerned. The)
+610 W( irrelevant details of how the abstraction is supported are completely hidden from the)180 W
+9200 40046 MT
+(users [Liskov, 1973a, p. 6].)SH
+10 SS 
+7200 41569 MT
+(Furthermore, the language should support a syntactic unit that can be used to)
+52 W( implement abstract types,)51 W
+7200 42712 MT
+(and "the language must be strongly typed so that it is not possible to make use of an object in)
+49 W( any other)50 W
+7200 43855 MT
+(way [Liskov, 1973a, p. 7]" except by calling its operations.)SH
+8312 46139 MT
+(At about the time)
+71 W( of the Savannah meeting, I began to work with Steve Zilles, who was also at M.I.T.)70 W
+7200 47282 MT
+(working on a similar idea.  Steve published his ideas at Savannah)
+3 W( [Zilles,)
+SH( 1973],)
+3 W( and there were a number)4 W
+7200 48425 MT
+(of other related talks given there, including)
+17 W( a talk on monitors by Mike McKeag)
+16 W( [McKeag,)
+SH( 1973] and a talk)16 W
+7200 49568 MT
+(on Lis by Jean Ichbiah [Ichbiah, 1973].)SH
+8312 51852 MT
+(Steve and I worked on refining the concept of abstract types over the spring and summer of 1973;)147 W
+7200 52995 MT
+(Austin Henderson was involved to)
+14 W( a lesser extent as an interested listener and critic.  Our progress report)13 W
+7200 54138 MT
+(for that year)
+94 W( [Liskov,)
+SH( 1973b])
+94 W( describes a slightly later status for the work than what was reported at the)95 W
+7200 55281 MT
+(Savannah meeting.  In the progress report, we state that an abstract type)
+242 W( should be defined by a)241 W
+7200 56424 MT
+("function cluster" containing the operations of the type.  By the end of the summer,)
+190 W( our ideas about)191 W
+7200 57567 MT
+(language support for data abstraction were quite well-established, and)
+93 W( Steve and I described them in a)92 W
+7200 58710 MT
+(paper published in September)
+238 W( [Liskov,)
+SH( 1973c]; a slightly later version of this paper appeared)
+238 W( in the)239 W
+7200 59853 MT
+(conference on very high level languages held in April 1974)
+26 W( [Liskov,)
+SH( 1974a].  The)
+26 W( September paper states)25 W
+7200 60996 MT
+(that an abstract data type is implemented by)
+14 W( a "cluster" containing a description of the representation and)15 W
+7200 62139 MT
+(implementations of all the operations.  It defines structured programming:)SH
+9 SS 
+9200 63589 MT
+(In structured programming, a problem is solved by means of a process of)
+44 W( successive decomposition.  The)43 W
+9200 64638 MT
+(first step is to write a program which solves the problem but)
+68 W( which runs on an abstract machine, i.e., one)69 W
+9200 65687 MT
+(which provides)
+48 W( just those data objects and operations which are suitable to solving the problem.  Some or)47 W
+9200 66736 MT
+(all of those data objects and)
+14 W( operations are truly abstract, i.e., not present as primitives in the programming)15 W
+9200 67785 MT
+(language being used [Liskov, 1973c, p. 3].)SH
+10 SS 
+8312 70069 MT
+(CLU was chosen as the name of the language in the fall)
+3 W( of 1973.  The name was selected because it is)2 W
+7200 71212 MT
+(the first three letters of "cluster.")SH
+ES
+%%Page: 3 4 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(3)SH
+46000 XM
+(A History of CLU)SH
+11 SS 
+7200 8002 MT
+(2.1. Related Early Work)SH
+10 /Helvetica AF
+8312 9145 MT
+(Programming languages that existed when the concept of data abstraction arose)
+239 W( did not support)240 W
+7200 10288 MT
+(abstract data types, but some languages contained)
+108 W( constructs that were precursors of this notion.  \050An)107 W
+7200 11431 MT
+(analysis of language support for other languages was done by)
+21 W( Jack Aiello, a student in the CLU group, in)22 W
+7200 12574 MT
+(the fall of l973 and the spring of l974)
+9 W( [Aiello,)
+SH( 1974].\051  The mechanism that)
+9 W( matched the best was the class)8 W
+7200 13717 MT
+(mechanism of Simula 67.  A Simula class groups a)
+67 W( set of procedures with some variables.  A class can)68 W
+7200 14860 MT
+(be instantiated to provide an object containing its own copies of the variables; the class contains code)118 W
+7200 16003 MT
+(that initializes these variables at instantiation time.  However, Simula classes did not enforce)462 W
+7200 17146 MT
+(encapsulation \050although Palme)
+129 W( later proposed a change to Simula that did)
+128 W( [Palme,)
+SH( 1973]\051, and Simula)128 W
+7200 18289 MT
+(was lacking several other features needed to support data abstraction, as discussed further in Section)127 W
+7200 19432 MT
+(3.2.)SH
+8312 21716 MT
+(Extensible languages contained a weak notion of data abstraction.  This work)
+94 W( arose from a notion of)93 W
+7200 22859 MT
+("uniform referents")
+7 W( [Balzer,)
+SH( 1967; Earley, 1971; Ross, 1970].  The idea was that all data types ought)
+7 W( to be)8 W
+7200 24002 MT
+(referenced in the same way so that decisions about data representation could)
+63 W( be delayed and changed.)62 W
+7200 25145 MT
+(This led to a notion of a fixed set of operations that every type supported.)
+108 W( For)
+496 W( example, every type in)109 W
+7200 26288 MT
+(EL1 [Wegbreit,)
+SH( 1972; Wegbreit, 1973] was permitted to provide five operations)
+66 W( \050conversion, assignment,)65 W
+7200 27431 MT
+(selection, printing, and generation\051.  However, the new type was not abstract; instead it was just)
+191 W( an)192 W
+7200 28574 MT
+(abbreviation for the chosen)
+100 W( representation, which could be accessed everywhere, so that there was no)99 W
+7200 29717 MT
+(encapsulation.)SH
+8312 32001 MT
+(PL/I provided multi-entry procedures, which can be used to implement data abstractions, and in)
+74 W( fact I)75 W
+7200 33144 MT
+(have used PL/I in teaching how to program using abstract data types when)
+94 W( languages with more direct)93 W
+7200 34287 MT
+(support were not available.  The PL/I mechanism allows the description)
+59 W( of the representation chosen for)60 W
+7200 35430 MT
+(objects of the new type to)
+90 W( be grouped with the code for the operations; the representation is defined at)89 W
+7200 36573 MT
+(the beginning of the multi-entry procedure, and the entry points serve as the)
+31 W( operations.  However, users)32 W
+7200 37716 MT
+(of the type can access)
+123 W( the representations of objects directly \050without calling the operations\051, so again)122 W
+7200 38859 MT
+(there is no enforcement of encapsulation.  Furthermore, multi-entry procedures)
+88 W( have other peculiarities,)89 W
+7200 40002 MT
+(e.g., if control falls off the end of one entry point, it does not)
+69 W( return to the caller but instead continues in)68 W
+7200 41145 MT
+(the entry point that follows textually within the multi-entry procedure.)SH
+8312 43429 MT
+(An interesting paper)
+66 W( that appeared in early 1973 was Jim Morris' paper on protection in programming)67 W
+7200 44572 MT
+(languages [Morris,)
+SH( 1973a].  This paper contains an example of an abstract data type implemented)
+89 W( by a)88 W
+7200 45715 MT
+(lambda expression that returns a list of operations to be used to access)
+65 W( and manipulate the new object.)66 W
+7200 46858 MT
+(The paper also describes how)
+171 W( encapsulation can be enforced dynamically by means of a key that is)170 W
+7200 48001 MT
+(needed to access the representation and whose value is)
+48 W( known only to the type's operations \050this notion)49 W
+7200 49144 MT
+(is elaborated in)
+229 W( [Morris,)
+SH( 1973b]\051.  In the early design of CLU, we thought that this kind)
+229 W( of dynamic)228 W
+7200 50287 MT
+(checking would be needed in some cases, but as the)
+267 W( design progressed we came to realize that)268 W
+7200 51430 MT
+(complete static type checking is possible.)SH
+8312 53714 MT
+(Bill Wulf)
+90 W( and Mary Shaw published a paper concerning the misuse of global variables)
+89 W( [Wulf,)
+SH( 1973] in)89 W
+7200 54857 MT
+(l973. One)
+278 W( point made in this paper is that there is no way in a block structured language to limit access to)SH
+7200 56000 MT
+(a group of variables to just the group of procedures that need such access.  This paper represents some)37 W
+7200 57143 MT
+(of the early thinking of the people who went on to develop Alphard [Shaw, 1981; Wulf, 1976].)SH
+8312 59427 MT
+(Also in l973 Tony)
+35 W( Hoare published an important paper about how to reason about the correctness of a)36 W
+7200 60570 MT
+(data type implementation)
+67 W( [Hoare,)
+SH( 1972].  This paper pointed the way)
+67 W( to future work on specification and)66 W
+7200 61713 MT
+(verification of programs built with data abstractions.)SH
+8312 63997 MT
+(A timely and useful meeting was organized by Jack Dennis and held at the Harvard)
+98 W( Faculty Club on)99 W
+7200 65140 MT
+(October 3 - 5, 1973 to discuss issues in programming language design; a)
+25 W( list of attendees is contained in)24 W
+7200 66283 MT
+(Appendix A. The topics discussed were:  types, semantic bases, concurrency, error handling, symbol)167 W
+7200 67426 MT
+(identification, sharing and assignment, relation to systems.  Most attendees at the)
+159 W( meeting gave brief)158 W
+7200 68569 MT
+(talks describing their research.  I spoke about clusters and the current state of the)
+77 W( CLU design, and Bill)78 W
+7200 69712 MT
+(Wulf discussed)
+86 W( the work on Alphard.  \050Neither of the language names existed at this point.\051  Ole-Johan)85 W
+7200 70855 MT
+(Dahl discussed Simula classes and)
+17 W( their relationship to clusters.  Steve Zilles described his early work on)18 W
+7200 71998 MT
+(specifying abstract data types; he gave the axioms for the soon to)
+154 W( be notorious stack example.  Carl)153 W
+ES
+%%Page: 4 5 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(4)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(Hewitt discussed his work on Actors, and Tony Hoare described monitors.  Also, Jim Mitchell described)82 W
+7200 9072 MT
+(his early work on error handling, which led to the exception handling mechanism in Mesa [Mitchell, 1978].)SH
+11 /Helvetica-Bold AF
+7200 12754 MT
+(2.2. Programming Methodology)SH
+10 /Helvetica AF
+8312 13897 MT
+(The identification of data)
+343 W( abstractions as an organizing principle for programs spurred work in)342 W
+7200 15040 MT
+(programming methodology.  This work is discussed briefly in this section.)SH
+8312 17324 MT
+(As mentioned, the concept of data abstraction arose out of work on)
+226 W( structured programming and)227 W
+7200 18467 MT
+(modularity that was aimed at a new way of organizing programs.)
+208 W( Traditionally,)
+693 W( programs had been)207 W
+7200 19610 MT
+(organized using procedures or subroutines.)
+309 W( The)
+897 W( new idea was to organize around modules that)310 W
+7200 20753 MT
+(consisted of a number of related)
+145 W( procedures, and, with the advent of data abstraction, these modules)144 W
+7200 21896 MT
+(defined data types or objects.  The hope was that this would lead to better organized programs that)
+6 W( would)7 W
+7200 23039 MT
+(be easier to implement and understand, and, as a result, easier to get right.)SH
+8312 25323 MT
+(The resulting programming methodology)
+106 W( [Liskov,)
+SH( 1979a; Liskov, 1986a] is object-oriented:)
+106 W( programs)488 W
+7200 26466 MT
+(are developed by thinking about the objects they manipulate and then)
+202 W( inventing a modular structure)203 W
+7200 27609 MT
+(based on these objects.  Each type of object is implemented by its)
+96 W( own program module.  Although no)95 W
+7200 28752 MT
+(studies have)
+277 W( shown convincingly that this methodology is superior to others, the methodology has)278 W
+7200 29895 MT
+(become widespread and people believe that)
+33 W( it works.  \050I believe this; I also believe that it is impossible to)32 W
+7200 31038 MT
+(run a controlled experiment that will produce a convincing result.\051)SH
+8312 33322 MT
+(A keystone of)
+10 W( the methodology is its focus on independence of modules.  The goal is to be able to deal)11 W
+7200 34465 MT
+(with each module separately:  a module can be implemented independently of \050the code of\051)
+23 W( others, it can)22 W
+7200 35608 MT
+(be reasoned about independently, and it can be)
+170 W( replaced by another module implementing the same)171 W
+7200 36751 MT
+(abstraction, without requiring any changes in the other modules of the program.  Thus, for example, if)
+72 W( a)71 W
+7200 37894 MT
+(data abstraction were implemented too inefficiently, it could be reimplemented and)
+59 W( the result would be a)60 W
+7200 39037 MT
+(program that ran better,)
+75 W( but whose behavior was otherwise unchanged.  What's really interesting is that)74 W
+7200 40180 MT
+(client programs don't have to be changed, and yet will run better.)SH
+8312 42464 MT
+(Achieving independence requires two things:  encapsulation and specification.  Encapsulation is)298 W
+7200 43607 MT
+(needed because if any other)
+45 W( module depends on implementation details of the module being replaced, it)44 W
+7200 44750 MT
+(will not be possible to do)
+27 W( the replacement without changing that other module.  Just having code in some)28 W
+7200 45893 MT
+(other module that accesses \050but does not)
+338 W( modify\051 an object's representation is enough to make)337 W
+7200 47036 MT
+(replacement impossible, since that)
+55 W( code is dependent on implementation details.  To keep programmers)56 W
+7200 48179 MT
+(from writing such code, Dave Parnas advocated hiding code from programmers)
+45 W( of other modules so that)44 W
+7200 49322 MT
+(they would be unable to write)
+33 W( code that depended on the details)
+34 W( [Parnas,)
+SH( 1971].  I believe this position is)34 W
+7200 50465 MT
+(too extreme, since it)
+1 W( conflicts with other desirable activities such as code reading.  Encapsulation makes it)SH
+7200 51608 MT
+(safer for programmers to read code.)SH
+8312 53892 MT
+(Specifications are needed to describe what the module is supposed to do in an)
+246 W( implementation-)247 W
+7200 55035 MT
+(independent way so that many different implementations are allowed.  \050Code is not a)
+286 W( satisfactory)285 W
+7200 56178 MT
+(description since it doesn't distinguish what is required)
+150 W( from ways of achieving it.  One of the striking)151 W
+7200 57321 MT
+(aspects of much of)
+105 W( the work on object-oriented programming has been its lack of understanding of the)104 W
+7200 58464 MT
+(importance of specifications; instead the code is)
+381 W( taken as the definition of behavior.\051  Given a)382 W
+7200 59607 MT
+(specification, one)
+235 W( can develop an implementation without needing to consider any other part of the)234 W
+7200 60750 MT
+(program. Furthermore,)
+850 W( the program will continue to work properly when)
+286 W( a new implementation is)287 W
+7200 61893 MT
+(substituted for the old providing the new implementation satisfies the specification)
+44 W( \050and assuming the old)43 W
+7200 63036 MT
+(implementation did)
+151 W( too\051.  Specifications also allow code that uses the abstraction to be written before)152 W
+7200 64179 MT
+(code that implements the abstraction, and therefore are necessary if you want to do top-down)389 W
+7200 65322 MT
+(implementation.)SH
+8312 67606 MT
+(Work on specifications of data abstractions and)
+66 W( on the related area of reasoning about correctness in)67 W
+7200 68749 MT
+(programs that use and implement data abstraction started early)
+204 W( [Hoare,)
+SH( 1972; Parnas,)
+204 W( 1972b; Zilles,)203 W
+7200 69892 MT
+(1974a; Zilles, 1975] and continued for many years \050see, e.g.,)
+75 W( [Wulf,)
+SH( 1976; Goguen, 1975; Guttag,)
+75 W( 1975;)76 W
+7200 71035 MT
+(Guttag, 1977; Berzins, 1979; Parnas, 1972b; Spitzen, 1975; Guttag,)
+107 W( 1980]\051.  Verification methods work)106 W
+ES
+%%Page: 5 6 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(5)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(only when the type's)
+217 W( implementation is encapsulated \050actually, protection against modification of the)218 W
+7200 9072 MT
+(representation from outside the module is sufficient\051, since otherwise it will not be)
+70 W( possible to limit one's)69 W
+7200 10215 MT
+(attention to just a single module's implementation.  If a)
+132 W( language enforces encapsulation, independent)133 W
+7200 11358 MT
+(reasoning about modules is on a sound foundation.)
+92 W( Otherwise,)
+461 W( it isn't and a complete proof requires a)91 W
+7200 12501 MT
+(global analysis.  In essence, having a language enforce encapsulation means that the compiler proves)
+48 W( a)49 W
+7200 13644 MT
+(global property of a program; given this proof, the rest of the reasoning can be localized.)SH
+8312 15928 MT
+(Languages that enforce encapsulation are based on a "less is more")
+86 W( kind of philosophy.  The idea is)85 W
+7200 17071 MT
+(that something can be gained by having a programmer give up some freedom.  What is)
+40 W( gained is global:)41 W
+7200 18214 MT
+(increased ease in reasoning about)
+37 W( an entire, multi-module program.  What is lost is local:  a programmer)36 W
+7200 19357 MT
+(must live by the rules, which can sometimes be inconvenient.)SH
+12 /Helvetica-Bold AF
+7200 23112 MT
+(3. CLU)SH
+10 /Helvetica AF
+8312 24255 MT
+(Although I)
+46 W( was not thinking about developing a complete, implemented programming language when I)47 W
+7200 25398 MT
+(first worked on data abstraction, I took)
+115 W( this next step quite soon, sometime in the spring or summer of)114 W
+7200 26541 MT
+(1973. By)
+414 W( the time work began in earnest)
+68 W( on the language design in the fall of l973, many details of the)69 W
+7200 27684 MT
+(language were already set.)
+201 W( For)
+678 W( example, we had already decided to implement abstract types with)200 W
+7200 28827 MT
+(clusters, to keep objects in the heap, and to do complete)
+20 W( type checking.  However, there was lots of work)21 W
+7200 29970 MT
+(left to do to design all the language features and their interactions.)SH
+8312 32254 MT
+(In this section I)
+112 W( provide a history of the CLU development.  I begin by describing our goals \050Section)111 W
+7200 33397 MT
+(3.1\051, the design process \050Section)
+92 W( 3.2\051, and our design principles \050Section 3.3\051.  The remaining sections)93 W
+7200 34540 MT
+(discuss what I consider to be the important technical decisions made during the)
+108 W( project.  Details about)107 W
+7200 35683 MT
+(project staffing and the phases of the project can be found in Appendices B and C contains respectively.)SH
+11 /Helvetica-Bold AF
+7200 39365 MT
+(3.1. Language Goals)SH
+10 /Helvetica AF
+8312 40508 MT
+(The primary goal of the project was to do research on programming methodology:)SH
+9 SS 
+9200 41958 MT
+(We believe the best approach to developing a methodology that)
+76 W( will serve as a practical tool for program)77 W
+9200 43007 MT
+(construction is through)
+8 W( the design of a programming language such that problem solutions developed using)7 W
+9200 44056 MT
+(the methodology are programs in the language.  Several benefits accrue from this approach.  First, since)75 W
+9200 45105 MT
+(designs produced using the methodology are actual programs, the problems)
+208 W( of mapping designs into)207 W
+9200 46154 MT
+(programs do not require independent)
+107 W( treatment.  Secondly, completeness and precision of the language)108 W
+9200 47203 MT
+(will be reflected in a methodology that is similarly complete and precise.)
+65 W( Finally,)
+379 W( the language provides a)64 W
+9200 48252 MT
+(good vehicle for explaining the methodology to others [Liskov, 1974b, p. 35].)SH
+10 SS 
+8312 50536 MT
+(We recognized early on that implementations are not the same as abstractions.  An implementation is)52 W
+7200 51679 MT
+(a piece of code; an abstraction is a desired)
+56 W( behavior, which should be described independently from the)55 W
+7200 52822 MT
+(code, by means of a specification.  Thus, our original proposal to NSF says:)
+57 W( "An)
+393 W( abstract data type is a)58 W
+7200 53965 MT
+(concept whose meaning is)
+38 W( captured in a set of specifications, while a cluster provides an implementation)37 W
+7200 55108 MT
+(of a data type)
+232 W( [Dennis,)
+SH( 1974, p. 21]."  An implementation is correct if it)
+232 W( "satisfies" the abstraction's)233 W
+7200 56251 MT
+(specification. There)
+376 W( was a great deal of interest in the)
+49 W( group in specification and verification techniques,)48 W
+7200 57394 MT
+(especially for data abstractions.  This started with Steve Zilles' early work)
+155 W( on algebraic specifications,)156 W
+7200 58537 MT
+(which was mentioned in the proposal and also in the)
+63 W( progress report for l973-4)
+62 W( [Liskov,)
+SH( 1974b]; work on)62 W
+7200 59680 MT
+(specifications is discussed briefly in Section 2.2.  However, unlike)
+248 W( the Alphard group, we chose to)249 W
+7200 60823 MT
+(separate the work on specifications from the language definition.  I believed that the language should)148 W
+7200 61966 MT
+(contain only declarations that the compiler could)
+173 W( make use of, and not statements that it would treat)174 W
+7200 63109 MT
+(simply as)
+10 W( comments.  I think this decision was an important factor in our ability to make quick progress on)9 W
+7200 64252 MT
+(the language design.)SH
+8312 66536 MT
+(The work on CLU occurred at MIT within the Laboratory for Computer Science with support from)
+94 W( the)95 W
+7200 67679 MT
+(National Science Foundation and DARPA.)
+9 W( We)
+294 W( believed that our main "product" was concepts rather than)8 W
+7200 68822 MT
+(the language.  We thought of our)
+225 W( primary output as being publications, and that success would be)226 W
+7200 69965 MT
+(measured by our influence on programming methodology and practice)
+283 W( and on future programming)282 W
+7200 71108 MT
+(languages. We)
+528 W( did not think of)
+125 W( CLU as a language that would be exported widely.  Instead, we were)126 W
+ES
+%%Page: 6 7 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(6)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(concerned primarily with the export of ideas.)SH
+8312 10213 MT
+(CLU was intended to be a general purpose programming language that)
+137 W( supports most applications,)136 W
+7200 11356 MT
+(although it was geared more)
+181 W( toward symbolic than numerical computing.  It was not oriented toward)182 W
+7200 12499 MT
+(low-level system programming \050e.g., of operating systems\051, but it can be)
+143 W( used for this purpose by the)142 W
+7200 13642 MT
+(addition of a)
+151 W( few data types implemented in assembler, and the introduction of some procedures that)152 W
+7200 14785 MT
+(provide "unsafe features."  This is the technique that we have used in our implementations.)
+14 W( For)
+304 W( example,)13 W
+7200 15928 MT
+(we have a procedure in the library called "_cvt" that can be used to change the)
+61 W( type of an object.  Such)62 W
+7200 17071 MT
+(features are not described in)
+115 W( the CLU reference manual; most users are not supposed to use them.  I)114 W
+7200 18214 MT
+(believe this is a better approach than providing a)
+104 W( generally unsafe language like C, or a language with)105 W
+7200 19357 MT
+(unsafe features, like Mesa)
+223 W( [Mitchell,)
+SH( 1978], since it discourages)
+223 W( programmers from using the unsafe)222 W
+7200 20500 MT
+(features casually.)SH
+8312 22784 MT
+(CLU was intended to be used by "experienced" programmers.  Programmers)
+34 W( need not be wizards, but)35 W
+7200 23927 MT
+(they aren't supposed to be novices either.  Although CLU \050unlike Pascal\051 was not designed)
+193 W( to be a)192 W
+7200 25070 MT
+(teaching language, we use it this way and it seems to be easy to learn \050we teach it to sophomores\051.)SH
+8312 27354 MT
+(CLU was)
+37 W( geared toward developing production code.  It was intended to be a tool for "programming in)38 W
+7200 28497 MT
+(the large," for building big systems \050e.g., several hundred)
+15 W( thousand lines\051 that require many programmers)14 W
+7200 29640 MT
+(to work on them.)
+200 W( As)
+679 W( the work on CLU went on, I developed a programming methodology for such)201 W
+7200 30783 MT
+(systems [Liskov,)
+SH( 1979a; Liskov, 1986a].)
+24 W( CLU)
+325 W( favors program readability and understandability over ease)23 W
+7200 31926 MT
+(of writing, since we believed that these were more important for our intended users.)SH
+11 /Helvetica-Bold AF
+7200 35608 MT
+(3.2. The Design Process)SH
+10 /Helvetica AF
+8312 36751 MT
+(There were four main)
+35 W( language designers:  myself, and three graduate students, Russ Atkinson, Craig)36 W
+7200 37894 MT
+(Schaffert, and)
+75 W( Alan Snyder.  Steve Zilles was deeply involved in the early work on the language, but by)74 W
+7200 39037 MT
+(1974 Steve was concentrating primarily on)
+81 W( his work on specifications of abstract types, and acted more)82 W
+7200 40180 MT
+(as an interested)
+44 W( onlooker and critic of the developing design.  As time went by, other students joined the)43 W
+7200 41323 MT
+(group including)
+81 W( Bob Scheifler and Eliot Moss.  \050A list of those who participated in the design is given in)82 W
+7200 42466 MT
+(Appendix B.\051)SH
+8312 44750 MT
+(The design was a real group effort.  Usually it is not possible to identify an individual with)
+123 W( a feature)122 W
+7200 45893 MT
+(\050iterators are the exception here, as discussed in Section 3.10\051.)
+259 W( Instead)
+797 W( ideas were developed in)260 W
+7200 47036 MT
+(meetings, worked up by individuals, evaluated in later meetings, and then reworked.)SH
+8312 49320 MT
+(I was the leader of the project and ultimately made all the decisions, although)
+99 W( often we were able to)98 W
+7200 50463 MT
+(arrive at)
+22 W( a consensus.  In our design meetings we sometimes voted on alternatives, but these votes were)23 W
+7200 51606 MT
+(never binding.  I made the actual decisions later.)SH
+8312 53890 MT
+(Russ, Craig, and Alan)
+140 W( \050and later Bob and Eliot\051 were implementers as well as designers.  All of us)139 W
+7200 55033 MT
+(acted as "users;" we)
+304 W( evaluated every proposal from this perspective \050considering its usability and)305 W
+7200 56176 MT
+(expressive power\051,)
+233 W( as well as from a designer's perspective \050considering both implementability, and)232 W
+7200 57319 MT
+(completeness and well-definedness of semantics\051.)SH
+8312 59603 MT
+(We worked on the implementation in parallel with the design.  We did not)
+62 W( allow the implementation to)63 W
+7200 60746 MT
+(define the language, however.  We delayed implementing features)
+310 W( until we believed that we had)309 W
+7200 61889 MT
+(completed their design, and)
+303 W( if problems were discovered, they were resolved in design meetings.)304 W
+7200 63032 MT
+(Usually, we did not introduce any new features into the language during the implementation,)
+126 W( but there)125 W
+7200 64175 MT
+(were a few exceptions \050in particular, own data\051.)SH
+8312 66459 MT
+(We provided external documentation for the language)
+348 W( through papers, reference manuals, and)349 W
+7200 67602 MT
+(progress reports.)
+60 W( We)
+396 W( documented the design as it developed in a series of internal design notes)
+59 W( [PMG,)SH
+7200 68745 MT
+(1979a]. There)
+364 W( were seventy-eight notes in all; the first was published on December 6, 1973)
+43 W( and the last)44 W
+7200 69888 MT
+(on July 30, 1979.  The notes concentrated on the utility and semantics of proposed language)
+104 W( features.)103 W
+7200 71031 MT
+(Typically, a note would describe the meaning of a feature)
+215 W( \050in English\051 and illustrate its use through)216 W
+ES
+%%Page: 7 8 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(7)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(examples. Syntax)
+398 W( was)
+60 W( introduced so that we could write code fragments, but was always considered to)59 W
+7200 9072 MT
+(be of secondary importance.  We tended to firm up syntax last, at the end of a design cycle.)SH
+8312 11356 MT
+(The group held weekly design meetings.  In these meetings we evaluated proposed features as)250 W
+7200 12499 MT
+(thoroughly as we could.  The goal was to uncover)
+16 W( any flaws, both with respect to usability and semantics.)15 W
+7200 13642 MT
+(This process seemed to work well for us:)
+245 W( we)
+770 W( had very few surprises during implementation.  We)246 W
+7200 14785 MT
+(published \050internal\051 design meeting minutes for most of our meetings [PMG, 1979b].)SH
+8312 17069 MT
+(The design)
+63 W( notes use English to define the semantics of proposed constructs.  We did not use formal)62 W
+7200 18212 MT
+(semantics as a design tool because I believed that the effort required)
+49 W( to write the formal definitions of all)50 W
+7200 19355 MT
+(the many variations we were considering would greatly outweigh any benefit.  We relied on)
+174 W( our very)173 W
+7200 20498 MT
+(explicit design notes and thorough analysis instead.  I believe our approach was wise and would)289 W
+7200 21641 MT
+(recommend it to designers today.  During design what is needed is precision, which can be achieved)
+59 W( by)58 W
+7200 22784 MT
+(doing a careful and rigorous, but informal, analysis of semantics as you go)
+209 W( along.  It's the analysis)210 W
+7200 23927 MT
+(process that is important; in its)
+75 W( absence, a formal semantics is probably not much help.  We provided a)74 W
+7200 25070 MT
+(formal semantics \050in several forms\051 when)
+75 W( the design was complete)
+76 W( [Schaffert,)
+SH( 1978; Scheifler, 1978].  It)76 W
+7200 26213 MT
+(validated our)
+4 W( design but did not uncover errors, which was gratifying.  For us, the main virtue of the formal)3 W
+7200 27356 MT
+(definition was as)SH
+/Helvetica-Oblique SF
+14870 XM
+(ex post facto)SH
+/Helvetica SF
+20818 XM
+(documentation.)SH
+8312 29640 MT
+(The group as a whole was quite knowledgeable about languages)
+61 W( that existed at the time.  I had used)62 W
+7200 30783 MT
+(Lisp extensively and had)
+53 W( also programmed in Fortran and Algol 60, Steve Zilles and Craig Schaffert had)52 W
+7200 31926 MT
+(worked on PL/I compilers, and Alan Snyder)
+62 W( had done extensive programming in C. In addition, we were)63 W
+7200 33069 MT
+(familiar with Algol 68, EL/1, Simula 67, Pascal, SETL, and various machine languages.)
+181 W( Early)
+638 W( in the)180 W
+7200 34212 MT
+(design process we)
+49 W( did a study of other languages to see whether we should use one of them as a basis)50 W
+7200 35355 MT
+(for our work)
+41 W( [Aiello,)
+SH( 1974].  We ultimately decided that none would be suitable as a basis.  None of)
+41 W( them)40 W
+7200 36498 MT
+(supported data abstraction, and we wanted to see where that idea would lead us without having)
+39 W( to worry)40 W
+7200 37641 MT
+(about how it might interact with pre-existing features.  However, we)
+71 W( did borrow from existing languages.)70 W
+7200 38784 MT
+(Our semantic model is largely borrowed from Lisp; our syntax is Algol-like.)SH
+8312 41068 MT
+(We also had certain negative influences.  We felt that)
+149 W( Pascal had made too many compromises to)150 W
+7200 42211 MT
+(simplify its implementation.  We believed strongly in compile-time type checking but felt it)
+71 W( was important)70 W
+7200 43354 MT
+(for the language to support types in a way that provided adequate expressive power.  We thought Pascal)26 W
+7200 44497 MT
+(was deficient here, e.g., in its inability \050at the time\051 to support a procedure that could accept as)
+210 W( an)209 W
+7200 45640 MT
+(argument arrays)
+236 W( of different sizes.  We felt that Algol 68 had gone much too far in its support for)237 W
+7200 46783 MT
+(overloading and coercions.  We believed that a language must have very simple rules)
+154 W( in this area or)153 W
+7200 47926 MT
+(programs would be hard for readers to understand.  This led us)
+90 W( ultimately to our ideas about "syntactic)91 W
+7200 49069 MT
+(sugar" \050see Section 3.7\051.)SH
+8312 51353 MT
+(Simula 67 was the existing language)
+10 W( that was closest to what we wanted, but it was deficient in several)9 W
+7200 52496 MT
+(ways, some of which seemed difficult to correct:)SH
+9424 53897 MT
+(1.)SH
+10536 XM
+(Simula did not)
+122 W( support encapsulation, so its classes could be used as a data abstraction)123 W
+10536 55040 MT
+(mechanism only if programmers obeyed rules not enforced by the language.)SH
+9424 56855 MT
+(2.)SH
+10536 XM
+(Simula did not provide support for user-defined type "generators."  These are)
+48 W( modules that)47 W
+10536 57998 MT
+(define groups of related types, e.g., a user-defined set module that defines)
+8 W( set[int], set[real],)9 W
+10536 59141 MT
+(etc.)SH
+9424 60956 MT
+(3.)SH
+10536 XM
+(It did not group operations and objects in)
+87 W( the way we thought they should be grouped, as)86 W
+10536 62099 MT
+(discussed in Section 3.4.)SH
+9424 63914 MT
+(4.)SH
+10536 XM
+(It treated built-in and user-defined types)
+78 W( non-uniformly.  Objects of user-defined types had)79 W
+10536 65057 MT
+(to reside in the heap, but objects of built-in type could be in either the stack or the heap.)SH
+7200 66458 MT
+(In addition, we felt that Simula's inheritance mechanism was a distraction)
+17 W( from what we were trying to do.)16 W
+7200 67601 MT
+(Of course, this very mechanism)
+192 W( was the basis for another main language advance of the seventies,)193 W
+7200 68744 MT
+(Smalltalk. The)
+634 W( work on Smalltalk was concurrent with)
+178 W( ours and was completely unknown to us until)177 W
+7200 69887 MT
+(around 1976.)SH
+ES
+%%Page: 8 9 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(8)SH
+46000 XM
+(A History of CLU)SH
+11 SS 
+7200 8002 MT
+(3.3. Design Principles)SH
+10 /Helvetica AF
+8312 9145 MT
+(The design of CLU was guided by a number of design principles, which were applied quite)
+7 W( consciously.)8 W
+7200 10288 MT
+(The principles we used were the following:)SH
+9424 11689 MT
+(1.)SH
+10536 XM
+(Keep focussed.  The goal of the language design was to explore data)
+22 W( abstraction and other)21 W
+10536 12832 MT
+(mechanisms that supported our programming methodology.  Language)
+94 W( features that were)95 W
+10536 13975 MT
+(not related to this goal were not investigated.  For)
+101 W( example, we did not look at extensible)100 W
+10536 15118 MT
+(control structures.  Also, although I originally intended CLU)
+25 W( to support concurrency)
+26 W( [Dennis,)SH
+10536 16261 MT
+(1974], we focussed on sequential programs initially to limit the scope of)
+143 W( the project, and)142 W
+10536 17404 MT
+(eventually decided to ignore concurrency entirely.  \050We did)
+4 W( treat concurrency in a successor)5 W
+10536 18547 MT
+(language, Argus [Liskov, 1983; Liskov, 1988].\051)SH
+9424 20362 MT
+(2.)SH
+10536 XM
+(Minimality. We)
+280 W( included as few features as possible.  We believed that we could learn more)SH
+10536 21505 MT
+(about the need for a feature we were unsure)
+2 W( of by leaving it out:  if it was there, users would)3 W
+10536 22648 MT
+(use it)
+105 W( without thinking about whether they needed it, but if it was missing, and they really)104 W
+10536 23791 MT
+(needed it, they would complain.)SH
+9424 25606 MT
+(3.)SH
+10536 XM
+(Simplicity. Each)
+480 W( feature was as simple as we could make it.  We measured simplicity)
+101 W( by)102 W
+10536 26749 MT
+(ease of explanation; a construct was simple if)
+108 W( we could explain it \050and its interaction with)107 W
+10536 27892 MT
+(other features\051 easily.)SH
+9424 29707 MT
+(4.)SH
+10536 XM
+(Expressive power.  We wanted to make it easy for users to say the)
+52 W( things we thought they)53 W
+10536 30850 MT
+(needed to say.  This was a major motivation,)
+4 W( for example, for the exception mechanism.  To)3 W
+10536 31993 MT
+(a lesser extent, we wanted to make it hard)
+166 W( to express things we thought should not be)167 W
+10536 33136 MT
+(expressed, but we didn't)
+160 W( pay too much attention to this; we knew that users could write)159 W
+10536 34279 MT
+(\050what we thought were\051 bad programs in CLU if they really wanted to.)SH
+9424 36094 MT
+(5.)SH
+10536 XM
+(Uniformity. As)
+578 W( much as possible, we wanted to treat built-in and user-defined types the)151 W
+10536 37237 MT
+(same. For)
+596 W( example, operations are called in the same way in)
+159 W( both cases; user-defined)158 W
+10536 38380 MT
+(types can make use of infix operators, and)
+144 W( built-in types use our "type_name$op_name")145 W
+10536 39523 MT
+(syntax to name operations that do not correspond to operator symbols just like the)
+127 W( user-)126 W
+10536 40666 MT
+(defined types.)SH
+9424 42481 MT
+(6.)SH
+10536 XM
+(Safety. We)
+290 W( wanted to make it)
+6 W( as easy as possible for programmers to write correct code by)7 W
+10536 43624 MT
+(ruling out errors or making it)
+112 W( possible to detect them automatically.  This is why we have)111 W
+10536 44767 MT
+(strong type checking, a garbage collected heap, and bounds checking.)SH
+9424 46582 MT
+(7.)SH
+10536 XM
+(Performance. We)
+808 W( wanted CLU programs to run quickly, e.g., close)
+265 W( to comparable C)266 W
+10536 47725 MT
+(programs. We)
+278 W( also wanted fast compilation but this was of secondary importance.)SH
+8312 50009 MT
+(As usual, several of these)
+410 W( goals are in conflict.  Expressive power conflicts with minimality;)409 W
+7200 51152 MT
+(performance conflicts)
+181 W( with safety and simplicity.  When conflicts arose we resolved them as best we)182 W
+7200 52295 MT
+(could, by trading off what was lost and what was gained in following a particular approach.  For)
+31 W( example,)30 W
+7200 53438 MT
+(we based our)
+204 W( semantics on a garbage collected heap even though it may require more expense at)205 W
+7200 54581 MT
+(runtime because it improves program safety and simplifies)
+108 W( our data abstraction mechanism.  A second)107 W
+7200 55724 MT
+(example is our iterator)
+69 W( mechanism; we limited the expressive power of the mechanism so that we could)70 W
+7200 56867 MT
+(implement it using a single stack.)SH
+8312 59151 MT
+(Concern for performance pervaded the design process.  We always considered how proposed)
+13 W( features)12 W
+7200 60294 MT
+(could be implemented efficiently.  In addition, we expected to make use of compiler optimizations)
+189 W( to)190 W
+7200 61437 MT
+(improve performance.  Programming with abstractions means)
+116 W( there are lots of procedure calls, e.g., to)115 W
+7200 62580 MT
+(invoke the operations of abstract types.  In our September l973 paper, Steve and I noted:)SH
+9 SS 
+9200 64030 MT
+(The primary business of a programmer is to build a program with a good)
+76 W( logical structure -- one which is)77 W
+9200 65079 MT
+(understandable and leads to ease in modification and maintenance.)
+17 W( . . . We)
+SH( believe it)
+17 W( is the business of the)16 W
+9200 66128 MT
+(compiler to map good logical)
+7 W( structure into good physical structure.)
+8 W( . . . Each)
+SH( operator-use may be replaced)8 W
+9200 67177 MT
+(either by a call upon the corresponding function in)
+177 W( the cluster or by inline code for the corresponding)176 W
+9200 68226 MT
+(function. . . . Inline)
+SH( insertion of the code for a function allows that code to be)
+131 W( subject to the optimization)132 W
+9200 69275 MT
+(transformations available in the compiler [Liskov, 1973c, p. 32-33].)SH
+10 SS 
+7200 70798 MT
+(Thus we had in mind inline substitution followed by other optimizations.  Bob Scheifler did a study of)
+31 W( how)30 W
+7200 71941 MT
+(and when to do inline substitution for his BS thesis [Scheifler, 1976; Scheifler, 1977].)SH
+ES
+%%Page: 9 10 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(9)SH
+46000 XM
+(A History of CLU)SH
+11 SS 
+7200 8002 MT
+(3.4. Implementing Abstract Types)SH
+10 /Helvetica AF
+8312 9145 MT
+(In CLU an abstract data type is)
+52 W( implemented by a)53 W
+/Helvetica-Oblique SF
+31013 XM
+(cluster)SH
+/Helvetica SF
+(, which is a program module with three parts)53 W
+7200 10288 MT
+(\050see Figure 3-1\051:  \0501\051 a header listing the operations)
+59 W( that can be used to create and interact with objects)58 W
+7200 11431 MT
+(of that type; \0502\051 a definition)
+43 W( of the storage representation, or)44 W
+/Helvetica-Oblique SF
+34305 XM
+(rep)SH
+/Helvetica SF
+(, that is used to implement the objects of)44 W
+7200 12574 MT
+(the type; \0503\051 procedures \050and iterators -- see Section 3.10\051 that implement the operations listed in the)139 W
+7200 13717 MT
+(header \050and)
+39 W( possibly some additional, internal procedures and iterators as well\051.  Only procedures inside)40 W
+7200 14860 MT
+(the cluster can access the representations of objects)
+151 W( of the type.  This restriction is enforced by type)150 W
+7200 16003 MT
+(checking.)SH
+9424 19432 MT
+(int_set =)SH
+/Helvetica-Bold SF
+13510 XM
+(cluster is)SH
+/Helvetica SF
+18179 XM
+(create, member, size, insert, delete, elements)SH
+/Helvetica-Bold SF
+11648 21718 MT
+(rep)SH
+/Helvetica SF
+13482 XM
+(= array[int])SH
+11648 24004 MT
+(% implementations of operations go here)SH
+/Helvetica-Bold SF
+11648 26290 MT
+(end)SH
+/Helvetica SF
+13704 XM
+(int_set)SH
+/Helvetica-Bold SF
+21902 27973 MT
+(Figure 3-1:)SH
+/Helvetica SF
+27848 XM
+(The Structure of a Cluster)SH
+8312 30257 MT
+(There are two different ways to relate objects and operations:)SH
+9424 31658 MT
+(1.)SH
+10536 XM
+(One possibility is to consider the operations as belonging to the)
+6 W( type.  This is the view taken)7 W
+10536 32801 MT
+(by both CLU)
+14 W( and Alphard.  \050Alphard "forms" are similar to clusters.\051  In this case, a type can)13 W
+10536 33944 MT
+(be thought of as defining both a set of objects and a set of operations.)
+92 W( \050The)
+464 W( approach in)93 W
+10536 35087 MT
+(Ada is)
+216 W( a variation on this.  A single module defines both the type and the operations.)215 W
+10536 36230 MT
+(Operations have access to the representation of objects of their type because they)
+192 W( are)193 W
+10536 37373 MT
+(defined inside the module that defines the type.  Several types can be)
+52 W( defined in the same)51 W
+10536 38516 MT
+(modules, and operations in the module)
+183 W( can access the representations of objects of all)184 W
+10536 39659 MT
+(these types.\051)SH
+9424 41474 MT
+(2.)SH
+10536 XM
+(A second possibility)
+98 W( is to consider the operations as belonging to the objects.  This is the)97 W
+10536 42617 MT
+(view taken in Simula, and also in Smalltalk and C++.)SH
+8312 44901 MT
+(These two approaches)
+94 W( have different strengths and weaknesses.  The "operations in type" approach)95 W
+7200 46044 MT
+(works well for operations like "+" or)
+200 W( "union" that need to access the representations of two or more)199 W
+7200 47187 MT
+(objects at once, since with this approach, any operation of the type can access the representation of)
+39 W( any)40 W
+7200 48330 MT
+(object of the type.  The "operations in object" approach)
+230 W( does not work so well for such operations)229 W
+7200 49473 MT
+(because an operation can only access the representation of a single object, the)
+14 W( one it belongs to.  On the)15 W
+7200 50616 MT
+(other hand,)
+77 W( if there can be more than one implementation for a type in existence within a program, or if)76 W
+7200 51759 MT
+(there is inheritance, the "operations in object" approach works better, since an)
+219 W( operation knows the)220 W
+7200 52902 MT
+(representation of its)
+5 W( object, and cannot make possibly erroneous assumptions about the representation of)4 W
+7200 54045 MT
+(other objects since it is unable to access these representations.)SH
+8312 56329 MT
+(We believed that it was important to support multiple implementations but even more)
+SH( important to make)1 W
+7200 57472 MT
+(binary operations like "+" work well.)
+24 W( We)
+325 W( did not see how to make the "operations in object" approach run)23 W
+7200 58615 MT
+(efficiently for binary operations.  For example, we wanted adding two integers to)
+59 W( require a small number)60 W
+7200 59758 MT
+(of machine instructions, but this is not possible unless the compiler knows the representation)
+41 W( of integers.)40 W
+7200 60901 MT
+(We could have solved this problem by treating integers specially \050allowing)
+135 W( just one implementation for)136 W
+7200 62044 MT
+(them\051, but that seemed inelegant, and it conflicted with our)
+30 W( uniformity goal.  Therefore, a program in CLU)29 W
+7200 63187 MT
+(can have only a single implementation for any given type \050built-in or user-defined\051.)SH
+8312 65471 MT
+(People have been working for)
+266 W( the last fifteen years to make integers run fast in object-oriented)267 W
+7200 66614 MT
+(languages \050see, e.g., the work of Dave Ungar)
+34 W( and Craig Chambers)
+33 W( [Chambers,)
+SH( 1990]\051.  So in retrospect,)33 W
+7200 67757 MT
+(it was probably just as well that we avoided)
+24 W( this problem.  Furthermore, although a program development)25 W
+7200 68900 MT
+(support system must store many implementations of a)
+4 W( type \050and we do this as discussed in Section 3.11\051,)3 W
+7200 70043 MT
+(allowing multiple implementations within a single program seems less)
+131 W( important.  During the design of)132 W
+7200 71186 MT
+(CLU, we hypothesized that it might)
+39 W( be sufficient to limit different implementations to different regions of a)38 W
+ES
+%%Page: 10 11 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(10)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(program [Liskov,)
+SH( 1975a].)
+328 W( This)
+935 W( idea was incorporated into Argus)
+329 W( [Liskov,)
+SH( 1983; Liskov, 1988], the)329 W
+7200 9072 MT
+(language we developed after CLU.  In Argus the regions are called "guardians" and the same)
+89 W( type can)88 W
+7200 10215 MT
+(have different implementations in different guardians within the same program.  Guardians can)417 W
+7200 11358 MT
+(communicate using objects of a type where the implementations differ because the representation can)124 W
+7200 12501 MT
+(change as part of the communication [Herlihy, 1982].)SH
+11 /Helvetica-Bold AF
+7200 16183 MT
+(3.5. Semantic Model)SH
+10 /Helvetica AF
+8312 17326 MT
+(CLU looks like an Algol-like language, but its semantics is like that of Lisp:  CLU objects)
+79 W( reside in an)80 W
+7200 18469 MT
+(object universe \050or heap\051, and a variable just identifies \050or refers to\051 an object.  We decided)
+88 W( early on to)87 W
+7200 19612 MT
+(have objects in the heap, although we had)
+103 W( numerous discussions about the cost of garbage collection.)104 W
+7200 20755 MT
+(This decision greatly simplified the data abstraction mechanism \050although I don't think we appreciated the)16 W
+7200 21898 MT
+(full extent of the simplification until quite late in the)
+14 W( project\051.  A language that allocates objects only on the)15 W
+7200 23041 MT
+(stack is not sufficiently expressive;)
+171 W( the heap is needed for objects whose sizes must change and for)170 W
+7200 24184 MT
+(objects whose lifetime exceeds that)
+117 W( of the procedure that creates them.  \050Of course, it's possible for a)118 W
+7200 25327 MT
+(program to)
+126 W( do everything using a stack)125 W
+/Symbol SF
+25584 XM
+(\276)SH
+/Helvetica SF
+26987 XM
+(or common)125 W
+/Symbol SF
+32516 XM
+(\276)SH
+/Helvetica SF
+33919 XM
+(but only at the cost of doing violence to the)125 W
+7200 26470 MT
+(program structure.\051  Therefore, the choice is:  just heap, or both.)SH
+8312 28754 MT
+(Here are)
+58 W( the reasons why we chose the heap approach \050an expanded discussion of these issues can)59 W
+7200 29897 MT
+(be found in [Moss, 1978]\051:)SH
+9424 31298 MT
+(1.)SH
+10536 XM
+(Declarations are simple to process when objects are on the heap:  the compiler)
+274 W( just)273 W
+10536 32441 MT
+(allocates space for a)
+114 W( pointer.  When objects are on the stack, the compiler must allocate)115 W
+10536 33584 MT
+(enough space so that the new)
+56 W( variable will be big enough to hold the object.  The problem)55 W
+10536 34727 MT
+(is that)
+362 W( knowledge about object size ought to be encapsulated inside the code that)363 W
+10536 35870 MT
+(implements the object's type.  There are a number)
+63 W( of ways to proceed.  For example, Ada)62 W
+10536 37013 MT
+(requires that size information)
+35 W( be made available to the compiler; this is why type definitions)36 W
+10536 38156 MT
+(appear in the "public" part of a module.  However,)
+27 W( this means that the type's representation)26 W
+10536 39299 MT
+(must be defined before any modules that)
+138 W( use the type can be compiled, and also, if the)139 W
+10536 40442 MT
+(representation changes, all using modules must be recompiled.  In Alphard,)
+20 W( the plan was to)19 W
+10536 41585 MT
+(provide additional)
+63 W( operations \050not available to user code\051 that could be called to determine)64 W
+10536 42728 MT
+(how much space to allocate; the compiler would insert calls to these)
+231 W( operations when)230 W
+10536 43871 MT
+(allocating space for variables.  The important point is that with)
+18 W( the heap approach the entire)19 W
+10536 45014 MT
+(problem is avoided.)SH
+9424 46829 MT
+(2.)SH
+10536 XM
+(The heap)
+253 W( approach allows us to separate variable and object creation:  variables are)252 W
+10536 47972 MT
+(created by declarations, while objects are created explicitly by calling an operation.)
+141 W( The)561 W
+10536 49115 MT
+(operation can take arguments)
+80 W( if necessary and can ensure that the new object is properly)79 W
+10536 50258 MT
+(initialized so that it has a legitimate state.  \050In other words, the code)
+15 W( can insure that the new)16 W
+10536 51401 MT
+(object satisfies the rep invariant)
+163 W( [Liskov,)
+SH( 1986b].\051  In this way we can avoid a source)
+163 W( of)162 W
+10536 52544 MT
+(program errors.)
+370 W( Proper)
+1019 W( initialization is more difficult with the stack approach since)371 W
+10536 53687 MT
+(arguments are often needed to do it right.  Also, the)
+89 W( heap approach allows many creation)88 W
+10536 54830 MT
+(operations, e.g., to create an empty)
+11 W( set, or a singleton set; having many creation operations)12 W
+10536 55973 MT
+(is more difficult with the stack approach.)SH
+9424 57788 MT
+(3.)SH
+10536 XM
+(The heap approach allows variable and)
+257 W( object lifetimes to be different; with the stack)256 W
+10536 58931 MT
+(approach they must be the same.  If the object is to live longer than the)
+150 W( procedure that)151 W
+10536 60074 MT
+(creates it, a)
+40 W( global variable must be used.  With the heap approach, a local variable is fine;)39 W
+10536 61217 MT
+(later a variable with a longer lifetime can be used, e.g., in)
+76 W( the calling procedure.  Avoiding)77 W
+10536 62360 MT
+(global variables is good since they)
+92 W( interfere with the modular structure of the program \050as)91 W
+10536 63503 MT
+(was pointed out by Wulf and Shaw [Wulf, 1973]\051.)SH
+9424 65318 MT
+(4.)SH
+10536 XM
+(Assignment has a type-independent meaning with the heap approach;)SH
+12760 67001 MT
+(x := e)SH
+10536 68684 MT
+(causes x to refer to the object obtained by evaluating)
+281 W( expression e.  With the stack)282 W
+10536 69827 MT
+(approach, evaluating an expression produces a value)
+13 W( that must be copied into the assigned)12 W
+10536 70970 MT
+(variable. To)
+458 W( do this right requires a call on the object's assignment operation,)
+90 W( so that the)91 W
+ES
+%%Page: 11 12 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(11)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+10536 7929 MT
+(right information is copied.  In particular,)
+4 W( if the object being copied contains pointers, it is not)3 W
+10536 9072 MT
+(clear whether to copy the objects pointed at; only the implementer of the type knows)
+122 W( the)123 W
+10536 10215 MT
+(right answer.  The assignment operation needs access to the variable containing the object)34 W
+10536 11358 MT
+(being copied; really call-by-reference is required.)
+38 W( Alphard)
+356 W( did copying right since it allowed)39 W
+10536 12501 MT
+(the definers of)
+334 W( abstract types to define the assignment operation using by-reference)333 W
+10536 13644 MT
+(parameters. Ada)
+1129 W( did not allow user-defined operations to control the meaning of)426 W
+10536 14787 MT
+(assignment; at least)
+149 W( in part this is because of the desire to treat call-by-reference as an)148 W
+10536 15930 MT
+(optimization of call-by-value/result, which simply won't work in this case.)SH
+8312 18214 MT
+(One unusual aspect of CLU is that our procedures have no free \050global\051 variables)
+26 W( \050this is another early)27 W
+7200 19357 MT
+(decision that is discussed in our September, l973)
+25 W( paper)
+24 W( [Liskov,)
+SH( 1973c]\051.  The view of procedures in CLU)24 W
+7200 20500 MT
+(is similar)
+5 W( to that in Lisp:  CLU procedures are not nested \050except that there can be local procedures within)6 W
+7200 21643 MT
+(a cluster\051 but instead are defined at the "top" level,)
+115 W( and can be called from any other module.  In Lisp)114 W
+7200 22786 MT
+(such procedures can)
+39 W( have free variables that are scoped dynamically, a well-known source of confusion.)40 W
+7200 23929 MT
+(We have found that free variables)
+289 W( are rarely needed.  This is probably attributable partly to data)288 W
+7200 25072 MT
+(abstraction itself, since)
+15 W( it encourages grouping related information into objects, which can then be passed)16 W
+7200 26215 MT
+(as arguments.)SH
+8312 28499 MT
+(In fact, CLU procedures do not share variables at all.)
+15 W( In)
+307 W( addition to there being no free variables, there)14 W
+7200 29642 MT
+(is no call-by-reference.)
+126 W( Instead)
+532 W( arguments are passed "by object"; the \050pointer to the\051 object resulting)127 W
+7200 30785 MT
+(from evaluating the actual argument)
+53 W( expression is assigned to the formal.  \050Thus passing a parameter is)52 W
+7200 31928 MT
+(just doing an assignment to the formal.\051  Similarly, a pointer to a)
+5 W( result object is returned to the caller.  We)6 W
+7200 33071 MT
+(have found that ruling out shared variables seems to make it easier to reason about programs.)SH
+8312 35355 MT
+(A CLU procedure can have side effects only if the argument objects can be modified \050since it cannot)85 W
+7200 36498 MT
+(access the caller's variables\051.  This led us to the concept of "mutable" objects.  Every CLU object has a)71 W
+7200 37641 MT
+(state. The)
+724 W( states)
+223 W( of some objects, such as integers and strings, cannot change; these objects are)222 W
+7200 38784 MT
+("immutable." Mutable)
+298 W( objects \050e.g., records and)
+10 W( arrays\051 can have a succession of states.  We spent quite)11 W
+7200 39927 MT
+(a bit of time discussing whether we should limit CLU to just immutable objects \050as in pure Lisp\051)
+94 W( but we)93 W
+7200 41070 MT
+(concluded that mutable objects are important when you)
+62 W( need to model entities from the real world, such)63 W
+7200 42213 MT
+(as storage.  \050Probably)
+220 W( this discussion would not have been so lengthy if we had not had so many)219 W
+7200 43356 MT
+(advocates of dataflow attending our meetings!\051  It is easy to define a pure subset of)
+182 W( CLU by simply)183 W
+7200 44499 MT
+(eliminating the built-in mutable types \050leaving their)
+415 W( immutable counterparts, e.g., sequences are)414 W
+7200 45642 MT
+(immutable arrays\051.)SH
+8312 47926 MT
+(CLU assignment)
+131 W( causes sharing:  after executing "x := y," variables x and y both refer to the same)132 W
+7200 49069 MT
+(object. If)
+284 W( this object is immutable, programs cannot detect the sharing, but they can if the shared)
+3 W( object is)2 W
+7200 50212 MT
+(mutable, since a modification made)
+55 W( via one variable will be visible via the other one.  People sometimes)56 W
+7200 51355 MT
+(argue that sharing of mutable objects makes reasoning about programs more difficult.  This)
+28 W( has not been)27 W
+7200 52498 MT
+(our experience)
+81 W( in using CLU.  I believe this is true in large part because we do not manipulate pointers)82 W
+7200 53641 MT
+(explicitly. Pointer)
+278 W( manipulation is clearly both a nuisance and a source of errors in other languages.)SH
+8312 55925 MT
+(The cost)
+1 W( of using the heap is greatly reduced by keeping small immutable objects of built-in types, such)SH
+7200 57068 MT
+(as integers and booleans, directly in the variables that refer to them.  These objects fit in the variables)105 W
+7200 58211 MT
+(\050they are no)
+41 W( bigger than pointers\051 and storing them there is safe since they are immutable:  Even though)40 W
+7200 59354 MT
+(in this case assignment does a copy of the object, no program can detect it.)SH
+11 /Helvetica-Bold AF
+7200 63036 MT
+(3.6. Issues Related to Safety)SH
+10 /Helvetica AF
+8312 64179 MT
+(Our desire to make it easy to write correct programs led us to)
+77 W( choose constructs that either ruled out)78 W
+7200 65322 MT
+(certain errors entirely or made it possible to detect them automatically.)SH
+8312 67606 MT
+(We chose to use garbage collection because)
+92 W( certain subtle program errors aren't possible under this)91 W
+7200 68749 MT
+(semantics. Explicit)
+369 W( deallocation is unattractive from a correctness point of view, since it can lead to both)46 W
+7200 69892 MT
+(dangling references and storage leaks; garbage collection rules out these)
+93 W( errors.  The decision to base)92 W
+7200 71035 MT
+(CLU on a garbage-collected heap was made during the fall of l973 [Liskov, 1974a].)SH
+ES
+%%Page: 12 13 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(12)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+8312 7929 MT
+(Another important effect of the safety goal was our decision to have)
+29 W( static type checking.  We included)30 W
+7200 9072 MT
+(here both checking within a module \050e.g., a procedure or a cluster\051 and inter-module type checking;)
+80 W( the)79 W
+7200 10215 MT
+(interaction of type checking with separate compilation is discussed in Section)
+22 W( 3.11.  Originally we thought)23 W
+7200 11358 MT
+(we would need to do runtime checking)
+69 W( [Liskov,)
+SH( 1973c])
+69 W( and we planned to base our technique on that of)68 W
+7200 12501 MT
+(Morris [Morris,)
+SH( 1973a].  By early l974,)
+114 W( we realized that we could do compile time checking most of the)115 W
+7200 13644 MT
+(time [Liskov, 1974a]; this issue is discussed further in Section 3.7.)SH
+8312 15928 MT
+(We preferred compile-time checking to runtime checking because)
+511 W( it enabled better runtime)510 W
+7200 17071 MT
+(performance and allowed us to find errors early.  We based our)
+75 W( checking on declarations, which we felt)76 W
+7200 18214 MT
+(were useful as a way of documenting the programmer's)
+164 W( intentions.  \050This position differs from that in)163 W
+7200 19357 MT
+(ML [Milner,)
+SH( 1990], in which type information)
+114 W( is inferred from the way variables are used.  We were not)115 W
+7200 20500 MT
+(aware of work on)
+77 W( ML until the late seventies.\051  To make the checking as effective as possible, we ruled)76 W
+7200 21643 MT
+(out coercions \050automatic)
+170 W( type conversions\051.  We avoided all declarative information that could not be)171 W
+7200 22786 MT
+(checked. For)
+338 W( example, we discussed declaring within a cluster whether the type being)
+30 W( implemented was)29 W
+7200 23929 MT
+(immutable. We)
+350 W( rejected this because the only way the compiler could ensure that this property)
+36 W( held was)37 W
+7200 25072 MT
+(to disallow mutable representations for immutable types.)
+39 W( We)
+354 W( wanted to allow an immutable type to have)38 W
+7200 26215 MT
+(a mutable representation.  One place where this is useful)
+167 W( is to support "benevolent side effects" that)168 W
+7200 27358 MT
+(modify the representation of an object to)
+76 W( improve performance of future operation calls without affecting)75 W
+7200 28501 MT
+(the visible behavior of the object.)SH
+8312 30785 MT
+(Type checking in CLU uses both structure and name equality.  Name equality comes)
+49 W( from clusters.  If)50 W
+7200 31928 MT
+("foo" and "bar" are the names of two different clusters, the two types are)
+73 W( not equal.  \050This is true if they)72 W
+7200 33071 MT
+(have the same representations; it is also true if they have the same operations with the)
+13 W( same signatures.\051)14 W
+7200 34214 MT
+(Structure equality comes from "equates."  For example, if we have the two equates)SH
+9424 35897 MT
+(t = array[int])SH
+9424 37040 MT
+(s = array[int])SH
+7200 38723 MT
+(then t = s.  We decided not)
+102 W( to allow recursion in equates on the grounds that recursion can always be)101 W
+7200 39866 MT
+(accomplished by using)
+29 W( clusters.  Although this reasoning is correct, the decision was probably a mistake;)30 W
+7200 41009 MT
+(it makes certain programs awkward to)
+60 W( write since extraneous clusters must be introduced just to get the)59 W
+7200 42152 MT
+(desired recursion.)SH
+8312 44436 MT
+(Another decision made to enhance safety was to not require that variables be initialized)
+31 W( when they are)32 W
+7200 45579 MT
+(declared. CLU)
+458 W( allows declarations to appear anywhere; they are not limited)
+90 W( to just the start of a block.)89 W
+7200 46722 MT
+(Nevertheless, sometimes when a variable is declared there is no)
+49 W( meaningful object to assign to it.  If the)50 W
+7200 47865 MT
+(language requires such an assignment, it misses a chance to notice)
+63 W( automatically if the variable is used)62 W
+7200 49008 MT
+(before it is assigned.  The definition of CLU states that)
+61 W( this situation will be recognized.  It is recognized)62 W
+7200 50151 MT
+(when running under the)
+211 W( debugger, but the necessary checking has never been implemented by the)210 W
+7200 51294 MT
+(compiler. This)
+536 W( is)
+129 W( the only thing in CLU that has not been implemented.  Checking for proper variable)130 W
+7200 52437 MT
+(initialization can usually be done by the compiler \050using simple flow analysis\051, which would insert code to)42 W
+7200 53580 MT
+(do runtime checks only for the few variables where the analysis is inconclusive.  However, we)
+167 W( never)168 W
+7200 54723 MT
+(added the checking to the compiler \050because of lack of manpower\051, and we did not)
+99 W( want to do runtime)98 W
+7200 55866 MT
+(checking at every variable use.)SH
+8312 58150 MT
+(By contrast, we require that all parts of an object be initialized when the object)
+9 W( is created, thus avoiding)10 W
+7200 59293 MT
+(errors arising from missing components.)
+136 W( We)
+549 W( believed that meaningful values for all components exist)135 W
+7200 60436 MT
+(when an object)
+44 W( is created; in part this is true because we don't create the object until we need to, in part)45 W
+7200 61579 MT
+(because creation happens as the result of an explicit call with arguments, if necessary, and)
+219 W( in part)218 W
+7200 62722 MT
+(because of the way CLU arrays are defined \050see below\051.  This belief has been borne out in practice.)SH
+8312 65006 MT
+(The differing positions on)
+213 W( variable and object component initialization arose from an evaluation of)214 W
+7200 66149 MT
+(performance effects as well as from concerns about safety.  As mentioned, checking)
+306 W( for variable)305 W
+7200 67292 MT
+(initialization can usually be done by the compiler.  Checking that components are initialized properly)
+115 W( is)116 W
+7200 68435 MT
+(much more likely to need to be done at runtime.)SH
+8312 70719 MT
+(Finally, we took care with the definitions of the built-in types both to rule out errors and to)
+44 W( enable error)43 W
+7200 71862 MT
+(detection. For)
+467 W( example, we do bounds checking for ints and reals.  Arrays are especially interesting in)95 W
+ES
+%%Page: 13 14 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(13)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(this regard.  CLU arrays cannot have any uninitialized elements.  When)
+115 W( they are created, they contain)114 W
+7200 9072 MT
+(some elements \050usually none\051 provided)
+43 W( as arguments to the creation operation; thereafter they can grow)44 W
+7200 10215 MT
+(and shrink on either end; each time an array grows, the new element is supplied.  Furthermore, bounds)72 W
+7200 11358 MT
+(checking is done on)
+2 W( every array operation that needs it \050e.g., when the ith element is fetched, we check to)3 W
+7200 12501 MT
+(be sure)
+140 W( that i is a legal index in the array\051.  Finally, arrays provide an iterator \050see Section 3.10\051 that)139 W
+7200 13644 MT
+(yields all elements and a second iterator that yields)
+163 W( all legal indices, allowing a programmer to avoid)164 W
+7200 14787 MT
+(indexing errors altogether.)SH
+11 /Helvetica-Bold AF
+7200 18469 MT
+(3.7. Parametric Polymorphism)SH
+10 /Helvetica AF
+8312 19612 MT
+(I mentioned earlier that)
+112 W( we wanted to treat built-in and user-defined types alike.  Since built-in types)111 W
+7200 20755 MT
+(could make use of parameters, we wanted to)
+17 W( allow them for user-defined types too.  At the same time we)18 W
+7200 21898 MT
+(wanted to provide complete type checking for them.)SH
+8312 24182 MT
+(For example, CLU arrays are parameterized.  An "array" is not a type by itself.  Instead it)
+111 W( is a "type)110 W
+7200 25325 MT
+(generator" that, given a type as a parameter, produces a type.  Thus, given the)
+17 W( parameter int, it produces)18 W
+7200 26468 MT
+(the type array[int].  We say that providing the parameter causes the type to be)
+36 W( "instantiated."  It is clearly)35 W
+7200 27611 MT
+(useful to have parameterized)
+77 W( user-defined types; e.g., using this mechanism we could define a set type)78 W
+7200 28754 MT
+(generator that could be instantiated to provide set[int], set[char], set[set[char]], and so on.)SH
+8312 31038 MT
+(The problem with type generators is how to type-check the instantiations.)
+129 W( We)
+535 W( limit actual values of)128 W
+7200 32181 MT
+(parameters to)
+21 W( compile time constants such as "3", "int", and "set[int]."  However, when the parameter is a)22 W
+7200 33324 MT
+(type, the type generator may need to use some of its operations.  For example, to test for set membership)SH
+7200 34467 MT
+(requires the ability)
+64 W( to compare objects of the parameter type for equality.  Doing this requires the use of)65 W
+7200 35610 MT
+(the equal operation for the parameter type.)SH
+8312 37894 MT
+(Our original plan was to pass in a type-object \050consisting of)
+18 W( a group of operations\051 as an argument to a)17 W
+7200 39037 MT
+(parameterized module, and have the code of the module check at runtime whether the type had the)177 W
+7200 40180 MT
+(operations it needed)
+207 W( with the proper signatures.  Eventually we invented the "where" clause)
+206 W( [Liskov,)SH
+7200 41323 MT
+(1977a], which describes the names and signatures of any operations the parameter type must have, e.g.,)SH
+9424 43006 MT
+(set =)SH
+/Helvetica-Bold SF
+11898 XM
+(cluster)SH
+/Helvetica SF
+15455 XM
+([t:)SH
+/Helvetica-Bold SF
+16567 XM
+(type)SH
+/Helvetica SF
+(])SH
+/Helvetica-Bold SF
+19179 XM
+(is)SH
+/Helvetica SF
+20291 XM
+(create, member, size, insert, delete, elements)SH
+/Helvetica-Bold SF
+11648 44149 MT
+(where)SH
+/Helvetica SF
+14816 XM
+(t)SH
+/Helvetica-Bold SF
+15372 XM
+(has)SH
+/Helvetica SF
+17373 XM
+(equal:)SH
+/Helvetica-Bold SF
+20375 XM
+(proctype)SH
+/Helvetica SF
+24876 XM
+(\050t, t\051)SH
+/Helvetica-Bold SF
+26932 XM
+(returns)SH
+/Helvetica SF
+30655 XM
+(\050bool\051)SH
+7200 45832 MT
+(Inside the body of a parameterized module, the)
+27 W( only operations of a type parameter that can be used are)28 W
+7200 46975 MT
+(those listed in the where clause.  Furthermore, when the type is)
+20 W( instantiated, the compiler checks that the)19 W
+7200 48118 MT
+(actual type parameter has the operations \050and signatures\051 listed in the where clause.)
+236 W( In)
+752 W( this way,)237 W
+7200 49261 MT
+(complete compile-time checking occurs.)SH
+8312 51545 MT
+(CLU was way ahead of its time in its)
+17 W( solution for parameterized modules.  Even today, most languages)16 W
+7200 52688 MT
+(do not support parametric polymorphism,)
+129 W( although there is growing recognition of the need for it \050e.g.,)130 W
+7478 53831 MT
+([Cardelli, 1988]\051.)SH
+11 /Helvetica-Bold AF
+7200 57513 MT
+(3.8. Other Uniformity Issues)SH
+10 /Helvetica AF
+8312 58656 MT
+(In the previous section I discussed how user-defined types can)
+19 W( be parameterized just like built-in ones.)18 W
+7200 59799 MT
+(In this section I discuss two other uniformity issues, the)
+288 W( syntax of operation calls, and syntax for)289 W
+7200 60942 MT
+(expressions. I)
+278 W( also discuss the way CLU views the built-in types, and what built-in types it provides.)SH
+8312 63226 MT
+(A language like CLU that associates operations with types has a)
+136 W( naming problem:  many types will)135 W
+7200 64369 MT
+(have operations of)
+84 W( the same name \050e.g., create, equal, size\051, and when an operation is called we need)85 W
+7200 65512 MT
+(some way of indicating which one is meant.  One)
+97 W( possibility is to do this with overloading, e.g., "equal")96 W
+7200 66655 MT
+(denotes many procedures, each with a different signature, and the one intended is selected)
+361 W( by)362 W
+7200 67798 MT
+(considering the context of the call.  This)
+41 W( rule works fairly well \050assuming no coercions\051 when the types of)40 W
+7200 68941 MT
+(the arguments are sufficient to)
+150 W( make the determination, e.g., equal\050s, t\051 denotes the operation named)151 W
+7200 70084 MT
+("equal" whose first argument is of s's type and whose second argument is of t's)
+51 W( type.  It doesn't work so)50 W
+7200 71227 MT
+(well if the calling context must be considered, which is the case for all creation)
+37 W( operations.  For example,)38 W
+ES
+%%Page: 14 15 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(14)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(we can tell that set create is meant in the following code:)SH
+9424 9612 MT
+(s: set[int] := create\050 \051)SH
+7200 11295 MT
+(but it's more difficult \050and sometimes impossible\051 if the call occurs within an expression.)SH
+8312 13579 MT
+(We wanted)
+63 W( a uniform rule that applied to all operations of a type, including creation operations.  Also,)62 W
+7200 14722 MT
+(we were vehemently opposed to using complicated rules to resolve overloading)
+148 W( \050e.g., as in Algol 68\051.)149 W
+7200 15865 MT
+(This led us to require instead that every call indicate explicitly the exact operation being called, e.g.,)SH
+9424 17548 MT
+(s: set[int] := set[int]$create\050 \051)SH
+7200 19231 MT
+(In doing so, we eliminated overloading all together:  the name)
+6 W( of an operation is always t$o, where t is the)5 W
+7200 20374 MT
+(name of its)
+158 W( type, and o is its name within its type.  This rule is applied uniformly to both built-in and)159 W
+7200 21517 MT
+(user-defined types.)SH
+8312 23801 MT
+(We also allow certain short forms for calls.  Most languages provide an)
+70 W( expression syntax that allows)69 W
+7200 24944 MT
+(symbols such as "+")
+59 W( to be used and allows the use of infix notation.  We wanted to provide this too.  To)60 W
+7200 26087 MT
+(accomplish this we used Peter Landin's notion of "syntactic sugar")
+136 W( [Landin,)
+SH( 1964].  We allow common)136 W
+7200 27230 MT
+(operator symbols but these are only short forms for)
+235 W( what is really happening, namely a call on an)236 W
+7200 28373 MT
+(operation using its full t$o name.  When the compiler encounters such a symbol, it "desugars" it by)197 W
+7200 29516 MT
+(following a simple rule:  it produces t$o where t is the type of the)
+87 W( first argument, and o is the operation)88 W
+7200 30659 MT
+(name associated with the symbol.  Thus "x + y" is desugared to "t$add\050x, y\051" where t is the type of x.)119 W
+7200 31802 MT
+(Once the desugaring)
+3 W( has happened, the compiler continues processing using the desugared form \050it even)4 W
+7200 32945 MT
+(does type checking using)
+233 W( this form\051.  In essence the desugared form is the canonical form for the)232 W
+7200 34088 MT
+(program.)SH
+8312 36372 MT
+(Not only is this approach simple and easy to understand, it applies to both built-in and user-defined)125 W
+7200 37515 MT
+(types uniformly.  To allow sugars to)
+34 W( be used with a new type, the type definer need only choose the right)33 W
+7200 38658 MT
+(names for the operations.  For)
+103 W( example, to allow the use of +, he or she names the addition operation)104 W
+7200 39801 MT
+("add." This)
+932 W( notion of desugaring applies to all the arithmetic operations, to)
+327 W( equality and related)326 W
+7200 40944 MT
+(operations \050e.g., <\051, and also to the)
+63 W( operations that access and modify fields of records and elements of)64 W
+7200 42087 MT
+(arrays.)SH
+8312 44371 MT
+(We did not succeed in making built-in and)
+123 W( user-defined types entirely alike, however.  Some built-in)122 W
+7200 45514 MT
+(types have literals \050e.g., ints\051.  Although we considered having a special literal notation for user-defined)89 W
+7200 46657 MT
+(types, in the)
+310 W( end we concluded that it offered very little advantage over regular calls of creation)309 W
+7200 47800 MT
+(operations. Another)
+292 W( difference is that)
+7 W( there is more power in our parameterization mechanism for records)8 W
+7200 48943 MT
+(than exists for user-defined)
+112 W( types.  In essence a record type generator is parameterized by the names)111 W
+7200 50086 MT
+(and types of its fields; different instantiations can have different)
+181 W( numbers of fields, and the operation)182 W
+7200 51229 MT
+(names are determined by the field names.  User-defined type generators must have)
+108 W( a fixed number of)107 W
+7200 52372 MT
+(parameters, and the operation names are fixed when the type generator is defined.)SH
+8312 54656 MT
+(Nevertheless, we achieved a design with a high degree of uniformity.)
+45 W( This)
+370 W( ultimately colored our view)46 W
+7200 55799 MT
+(of the built-in types.  We)
+68 W( ceased to think of them as something special; instead they were just the types)67 W
+7200 56942 MT
+(we provided.  This led us to decide that we need not)
+219 W( be parsimonious with the built-in types.  For)220 W
+7200 58085 MT
+(example, all the type generators come in mutable/immutable pairs,)
+142 W( e.g., array/sequence, record/struct,)141 W
+7200 59228 MT
+(variant/oneof \050these are tagged unions\051,)
+29 W( although just providing the mutable generators would have been)30 W
+7200 60371 MT
+(sufficient \050and the decision)
+46 W( to provide both mutable and immutable generators was made very late in the)45 W
+7200 61514 MT
+(design\051. Naturally)
+536 W( we)
+129 W( thought of the built-in types in terms of their operations, since this was how we)130 W
+7200 62657 MT
+(thought about all types.  We were generous)
+236 W( with the operations for built-in types:  we provided all)235 W
+7200 63800 MT
+(operations that we thought users might reasonably need, rather than a small)
+3 W( subset that would have been)4 W
+7200 64943 MT
+(semantically complete.  I believe this is the proper view)
+174 W( when defining a type \050either built-in or user-)173 W
+7200 66086 MT
+(defined\051 that is expected to be used by many different people.)SH
+8312 68370 MT
+(The built-in types of CLU are similar to those of other modern languages.  Procedures are first class)95 W
+7200 69513 MT
+(values in CLU; we permit them to be passed as arguments, returned as results,)
+203 W( and stored in data)202 W
+7200 70656 MT
+(structures. We)
+422 W( have an easy time with procedures because they are not allowed to have free variables)72 W
+7200 71799 MT
+(and therefore we do not need to create closures for them.  Recursive calls are permitted.)SH
+ES
+%%Page: 15 16 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(15)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+8312 7929 MT
+(CLU provides a type called "any")
+31 W( which is the union of all types.  An object of type any can be "forced")30 W
+7200 9072 MT
+(at runtime to its underlying type, but)
+27 W( this does not lead to type errors, since an attempt to force the object)28 W
+7200 10215 MT
+(to the wrong type will fail.  A type like any is needed in a statically typed)
+32 W( language; in essence it provides)31 W
+7200 11358 MT
+(an escape to runtime type-checking.)SH
+11 /Helvetica-Bold AF
+7200 15040 MT
+(3.9. Exception Handling)SH
+10 /Helvetica AF
+8312 16183 MT
+(I have already discussed the)
+61 W( fact that the main goal of the work on CLU was to support programming)62 W
+7200 17326 MT
+(methodology. We)
+402 W( had a strong belief that some kind of exception mechanism was needed)
+62 W( for this.  We)61 W
+7200 18469 MT
+(wanted to support "`robust' or `fault-tolerant' programs, i.e., programs)
+76 W( that are prepared to cope with the)77 W
+7200 19612 MT
+(presence of errors by attempting various error recovery techniques)
+122 W( [Liskov,)
+SH( 1975b, p.)
+122 W( 9]."  This means)121 W
+7200 20755 MT
+(they must be prepared to check for "exceptional" conditions and to cope with)
+105 W( them when they occur; a)106 W
+7200 21898 MT
+(majority of the code is often dedicated to this.  Without a good mechanism this code is both hard)
+39 W( to write)38 W
+7200 23041 MT
+(and difficult to read.  Also, we believed that support for exceptions)SH
+9 SS 
+9200 24491 MT
+(strengthens the abstraction power of)
+143 W( the language.  Each procedure is expected to be defined over all)144 W
+9200 25540 MT
+(possible values of its input parameters and all possible actions of the procedures it calls.)
+16 W( However,)
+281 W( it is not)15 W
+9200 26589 MT
+(expected to behave in the same way in all cases.  Instead,)
+282 W( it may respond appropriately in each)283 W
+9200 27638 MT
+(case [Liskov, 1975b, p. 11].)SH
+10 SS 
+8312 29922 MT
+(Therefore, we decided that CLU)
+323 W( ought to have an exception mechanism.  Support for such a)322 W
+7200 31065 MT
+(mechanism was already a goal in)
+189 W( early l974)
+190 W( [Zilles,)
+SH( 1974b].  In doing the design, we were aware of)190 W
+7200 32208 MT
+(mechanisms in PL/I, Mesa [Mitchell, 1978; Lampson, 1974], and also Roy Levin's thesis [Levin, 1977] and)SH
+7200 33351 MT
+(the paper by John Goodenough [Goodenough, 1975].)SH
+8312 35635 MT
+(CLU provides an exception mechanism based on the termination model of exceptions:)
+111 W( A)
+502 W( procedure)112 W
+7200 36778 MT
+(call terminates in one of a number of conditions; one is the "normal" return and the others)
+331 W( are)330 W
+7200 37921 MT
+("exceptional" terminations.  We considered and rejected the resumption model present in)
+88 W( both PL/I and)89 W
+7200 39064 MT
+(Mesa because it was complex and also because we believed)
+30 W( that most of the time, termination was what)29 W
+7200 40207 MT
+(was wanted.  Furthermore, if resumption were wanted, it could be simulated by passing a procedure)
+80 W( as)81 W
+7200 41350 MT
+(an argument \050although closures would be useful here\051.)SH
+8312 43634 MT
+(CLU's mechanism is unusual in its treatment of unhandled exceptions.  Most)
+60 W( mechanisms pass these)59 W
+7200 44777 MT
+(through: if)
+754 W( the caller does not handle an)
+238 W( exception raised by a called procedure, the exception is)239 W
+7200 45920 MT
+(propagated to its caller, and so on.  We rejected this approach because it did not fit our)
+155 W( ideas about)154 W
+7200 47063 MT
+(modular program construction.  We wanted to be able to call a procedure knowing just its specification,)87 W
+7200 48206 MT
+(not its implementation.  However, if exceptions are propagated)
+80 W( automatically, a procedure may raise an)79 W
+7200 49349 MT
+(exception not described in its specification.)SH
+8312 51633 MT
+(Although we did not want to)
+86 W( propagate exceptions automatically, we also did not want to require that)87 W
+7200 52776 MT
+(the calling procedure handle all exceptions raised by the called)
+36 W( procedure, since often these represented)35 W
+7200 53919 MT
+(situations in which there was nothing the caller could do.)
+30 W( For)
+340 W( example, it would be a nuisance to have to)31 W
+7200 55062 MT
+(provide handlers for exceptions that ought not to occur,)
+56 W( such as a bounds exception for an array access)55 W
+7200 56205 MT
+(when you have just checked that the index is legal.)
+261 W( Therefore,)
+801 W( we decided to turn all unhandled)262 W
+7200 57348 MT
+(exceptions into a special exception called)
+26 W( "failure" and propagate it.  This mechanism seems to work well)25 W
+7200 58491 MT
+(in practice.)SH
+8312 60775 MT
+(The main decisions about our exception mechanism)
+35 W( had been made by June l975)
+36 W( [Liskov,)
+SH( 1975b], but)36 W
+7200 61918 MT
+(we noted that "The hardest part of designing an exception handling mechanism, once the basic principles)17 W
+7200 63061 MT
+(are worked out, is to provide good human engineering for catching exceptions)
+141 W( [Liskov,)
+SH( 1975b, p. 13].")142 W
+7200 64204 MT
+(We worked out these details over the following two years.)
+100 W( We)
+476 W( had completed the design by the fall of)99 W
+7200 65347 MT
+(1977; the mechanism is described in [Liskov, 1977b; Liskov, 1978a; Liskov, 1979b].)SH
+8312 67631 MT
+(CLU exceptions are implemented efficiently)
+282 W( [Liskov,)
+SH( 1978b].  As a result, they are used in CLU)282 W
+7200 68774 MT
+(programs not just to indicate when errors occur but as a general way of conveying information from)
+131 W( a)130 W
+7200 69917 MT
+(called procedure to its caller.)SH
+ES
+%%Page: 16 17 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(16)SH
+46000 XM
+(A History of CLU)SH
+11 SS 
+7200 8002 MT
+(3.10. Iterators)SH
+10 /Helvetica AF
+8312 9145 MT
+(One of the tenets of the CLU design was that we were not going to do research in control)
+73 W( structures.)74 W
+7200 10288 MT
+(However, we did such work in defining the)
+160 W( exception mechanism, and also in designing certain other)159 W
+7200 11431 MT
+(control structures to make up)
+81 W( for the lack of gotos \050e.g., the)82 W
+/Helvetica-Bold SF
+34582 XM
+(break)SH
+/Helvetica SF
+37610 XM
+(statement, which terminates a loop\051.)82 W
+7200 12574 MT
+(We also did it in defining iterators.)SH
+8312 14858 MT
+(Iterators were inspired by a construct)
+83 W( in Alphard called a "generator")
+82 W( [Shaw,)
+SH( 1976; Shaw, 1977].  We)82 W
+7200 16001 MT
+(first learned about this in the summer of 1975 when we)
+143 W( visited the Alphard group at CMU.  We were)144 W
+7200 17144 MT
+(intrigued by generators since they solved some problems with data abstractions, but)
+163 W( we thought they)162 W
+7200 18287 MT
+(were too complicated.)
+79 W( Russ)
+438 W( Atkinson designed iterators on the airplane going back to Boston after this)80 W
+7200 19430 MT
+(meeting and described them in a design note in September 1975 [Atkinson, 1975].)SH
+8312 21714 MT
+(The problem solved by both generators and iterators is the)
+182 W( following.  Many data abstractions are)181 W
+7200 22857 MT
+(collections of elements, and)
+58 W( the reason for collecting the elements is so that later you can do something)59 W
+7200 24000 MT
+(to them.  Examples of such)
+115 W( collections are arrays, sets, and lists.  The problem is that for some types)114 W
+7200 25143 MT
+(there is no obvious way to get to the elements.  For arrays, you can use indexes; for lists, you)
+37 W( can follow)38 W
+7200 26286 MT
+(links. But)
+326 W( for)
+24 W( sets it's not clear what to do.  What you would like is an operation of the type to provide the)23 W
+7200 27429 MT
+(elements. Such)
+290 W( an operation could be a procedure that returns an)
+6 W( array containing the elements, but that)7 W
+7200 28572 MT
+(is expensive if)
+83 W( the collection is large.  Instead, it would be nice to get at the elements one at a time.  A)82 W
+7200 29715 MT
+(generator does this by providing a group of operations, containing at)
+246 W( least an operation to get the)247 W
+7200 30858 MT
+(generation started, an)
+11 W( operation to get the next element, and an operation to determine whether there are)10 W
+7200 32001 MT
+(any more)
+19 W( elements.  Alphard generators had several more operations, and the Alphard designers worked)20 W
+7200 33144 MT
+(out a way to use the)SH
+/Helvetica-Bold SF
+16428 XM
+(for)SH
+/Helvetica SF
+18039 XM
+(statement to call these operations at appropriate points.)SH
+8312 35428 MT
+(A CLU iterator is a single operation that yields its results incrementally.  For example,)SH
+9424 37111 MT
+(elements =)SH
+/Helvetica-Bold SF
+14621 XM
+(iter)SH
+/Helvetica SF
+16455 XM
+(\050s: set[t]\051)SH
+/Helvetica-Bold SF
+20623 XM
+(yields)SH
+/Helvetica SF
+23736 XM
+(\050t\051)SH
+7200 38794 MT
+(produces all the elements in set s, but it yields them one at a time.  An iterator is called in a)SH
+/Helvetica-Bold SF
+47663 XM
+(for)SH
+/Helvetica SF
+49274 XM
+(statement:)SH
+/Helvetica-Bold SF
+9424 40477 MT
+(for)SH
+/Helvetica SF
+11035 XM
+(x: int)SH
+/Helvetica-Bold SF
+13425 XM
+(in)SH
+/Helvetica SF
+14592 XM
+(set[int]$elements\050coll\051)SH
+/Helvetica-Bold SF
+24595 XM
+(do)SH
+/Helvetica SF
+11648 41620 MT
+(...)SH
+7200 43303 MT
+(The for)
+235 W( loop begins by calling the iterator.  Each time the iterator yields a result, the loop body is)234 W
+7200 44446 MT
+(executed; when the body finishes, control resumes in)
+48 W( the iterator, and when the iterator returns, the loop)49 W
+7200 45589 MT
+(terminates. Also,)
+278 W( if the loop body causes the loop to terminate, the iterator terminates.)SH
+8312 47873 MT
+(Iterators are related to coroutines; the iterator and the body of the for loop pass)
+34 W( control back and forth.)33 W
+7200 49016 MT
+(However, their use is limited so that CLU programs can make do with a)
+281 W( single stack.  They are)282 W
+7200 50159 MT
+(inexpensive: a)
+308 W( yield effectively calls the loop body, which returns to the iterator when it)
+15 W( is finished.  \050Calls)14 W
+7200 51302 MT
+(are very cheap in CLU.\051  Imposing the limitations on iterators was)
+80 W( done to get the efficient, single stack)81 W
+7200 52445 MT
+(implementation, albeit at the expense of some expressive power.)
+45 W( For)
+366 W( example, iterators cannot be used)44 W
+7200 53588 MT
+(to compute whether two)
+2 W( lists have the same elements, since to do this you need to iterate through the two)3 W
+7200 54731 MT
+(lists side-by-side, and CLU only allows iterators to be nested.)SH
+11 /Helvetica-Bold AF
+7200 58413 MT
+(3.11. Putting Programs Together)SH
+10 /Helvetica AF
+8312 59556 MT
+(From the start, we)
+112 W( believed that modules should be compiled separately and linked together to form)111 W
+7200 60699 MT
+(programs. Furthermore)
+588 W( we wanted)
+155 W( to be able to compile programs that used abstractions before the)156 W
+7200 61842 MT
+(used abstractions had been implemented or even fully defined \050in the case of an abstract type, only some)13 W
+7200 62985 MT
+(of the type's operations may be known when the type is invented\051.  Nevertheless, we wanted to have)134 W
+7200 64128 MT
+(complete inter-module type checking, and we wanted the checking)
+145 W( to be accurate:  when compiling a)144 W
+7200 65271 MT
+(using module, we wanted to check the)
+239 W( actual interface of the used module rather than some local)240 W
+7200 66414 MT
+(definitions that might be wrong.  \050CLU modules are procedures, clusters, and iterators.\051)SH
+8312 68698 MT
+(By September l973, we had already decided that of CLU programs should)
+204 W( be developed within a)203 W
+7200 69841 MT
+(program library)
+82 W( [Liskov,)
+SH( 1973c].  The library contained "description units,")
+82 W( each of which represented an)83 W
+7200 70984 MT
+(abstraction. A)
+970 W( description unit contained)
+346 W( an interface specification for its abstraction; for a data)345 W
+ES
+%%Page: 17 18 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(17)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(abstraction, this consisted of the names and signatures of the operations.  The description unit also)200 W
+7200 9072 MT
+(contained zero or more implementations.  Its interface specification could not be changed \050after an)
+52 W( initial)51 W
+7200 10215 MT
+(period when the abstraction is being defined\051, but)
+55 W( new implementations could be added over time.  \050The)56 W
+7200 11358 MT
+(interface specification is similar to a Mesa "def module."\051)SH
+8312 13642 MT
+(When compiling a module, the compiler would use the interface specifications in description units)
+4 W( in the)3 W
+7200 14785 MT
+(library to type check all its)
+210 W( uses of other modules.  The module uses local names to refer to other)211 W
+7200 15928 MT
+(modules:)SH
+9 SS 
+9200 17378 MT
+(However, using the entire library)
+157 W( to map a module-name provides too much flexibility and leads to the)156 W
+9200 18427 MT
+(possibility of name conflicts.)
+85 W( Instead)
+421 W( the compiler interprets module-names using a directory supplied by)86 W
+9200 19476 MT
+(the user [Liskov, 1973c, p. 29].)SH
+10 SS 
+7200 20999 MT
+(The description units used in this way did not)
+145 W( need to contain any implementations.  Implementations)144 W
+7200 22142 MT
+(would be selected in a separate step, at link time.  In this way)
+184 W( we could support top down program)185 W
+7200 23285 MT
+(construction, and we could change the implementation of a used module)
+167 W( without having to recompile)166 W
+7200 24428 MT
+(using modules.  The library is described in the reference manual [Liskov, 1979c; Liskov, 1984].)SH
+8312 26712 MT
+(The CLU library was never implemented because we never had enough time; it)
+413 W( was finally)414 W
+7200 27855 MT
+(implemented for Argus)
+287 W( [Liskov,)
+SH( 1983; Liskov, 1988].  However, our compiler)
+287 W( and linker provide an)286 W
+7200 28998 MT
+(approximation to what we wanted.  The compiler can be run in)
+268 W( "spec" mode to produce interface)269 W
+7200 30141 MT
+(specifications of a)
+76 W( module or modules and store them in a file.  One or more spec files can be supplied)75 W
+7200 31284 MT
+(when compiling a module and the compiler)
+208 W( will use the information in them to do inter-module type)209 W
+7200 32427 MT
+(checking. Implementations)
+446 W( are selected using the linker, which)
+84 W( combines \050object\051 files produced by the)83 W
+7200 33570 MT
+(compiler into a program.)SH
+8312 35854 MT
+(Our insistence on declared interface specifications contrasts)
+239 W( with work on type inference, e.g., in)240 W
+7200 36997 MT
+(ML [Milner,)
+SH( 1990].  I believe specifications are crucial because they)
+60 W( make it possible for programmers to)59 W
+7200 38140 MT
+(work independently; one person can implement an abstraction while)
+34 W( others implement programs that use)35 W
+7200 39283 MT
+(it. Furthermore,)
+464 W( the compiler should use the information in the specification since this)
+93 W( makes top-down)92 W
+7200 40426 MT
+(implementation possible.  Inference could still be used within the body of a module, however.)SH
+12 /Helvetica-Bold AF
+7200 44181 MT
+(4. Evaluation)SH
+10 /Helvetica AF
+8312 45324 MT
+(As mentioned, the main)
+239 W( goal of the work on CLU was to contribute to research in programming)240 W
+7200 46467 MT
+(methodology. We)
+286 W( hoped to influence others through the export of ideas rather than by producing a widely)3 W
+7200 47610 MT
+(used tool.  In this section I)
+194 W( discuss the success of CLU as a programming tool and a programming)195 W
+7200 48753 MT
+(language, and also its influence on programming methodology.)SH
+8312 51037 MT
+(CLU has been used in)
+112 W( a number of applications including a text editor called TED that is still in use)111 W
+7200 52180 MT
+(today, a WYSIWYG editor called ETUDE, a)
+91 W( browser for database conceptual schemas, a circuit design)92 W
+7200 53323 MT
+(system, a gate array layout)
+253 W( system, and the LP theorem-proving system)
+252 W( [Garland,)
+SH( 1990] and other)252 W
+7200 54466 MT
+(related work in rewriting systems)
+107 W( [Anantharaman,)
+SH( 1989].)
+107 W( These)
+493 W( projects vary in size; some were large)108 W
+7200 55609 MT
+(projects involving several programmers and lasting several years.)
+50 W( CLU)
+376 W( is still being used in the work on)49 W
+7200 56752 MT
+(LP.)SH
+8312 59036 MT
+(CLU has also been used in)
+61 W( teaching; this is probably its main use today both at M.I.T. and elsewhere)62 W
+7200 60179 MT
+(\050e.g., at the Tokyo)
+478 W( Institute of Technology where it is "the language" in Information Science)477 W
+7200 61322 MT
+(department [Kimura,)
+SH( 1992]\051.  It is the basis of a book on programming)
+16 W( methodology that I wrote with John)17 W
+7200 62465 MT
+(Guttag [Liskov,)
+SH( 1986a].  It is used)
+89 W( at M.I.T. in our software engineering course and also in our compiler)88 W
+7200 63608 MT
+(construction course.)SH
+8312 65892 MT
+(In addition, CLU has)
+177 W( been used in research.  There have been follow-on projects done elsewhere)178 W
+7200 67035 MT
+(including a CLU-based language developed in Finland)
+20 W( [Arkko,)
+SH( 1989], and a parallel version of)
+20 W( CLU called)19 W
+7200 68178 MT
+(CCLU [Bacon,)
+SH( 1988a; Cooper, 1987] developed at)
+59 W( Cambridge University in England.  CCLU grew out of)60 W
+7200 69321 MT
+(the Swift project at MIT)
+98 W( [Clark,)
+SH( 1985], in which CLU)
+98 W( was extended and used as a system programming)97 W
+7200 70464 MT
+(language. It)
+534 W( has been widely used in research at)
+128 W( Cambridge)
+129 W( [Bacon,)
+SH( 1988b; Craft, 1983].  Also, CLU)129 W
+7200 71607 MT
+(was the basis of my own later work on Argus)
+80 W( [Liskov,)
+SH( 1983; Liskov, 1988], a programming language for)80 W
+ES
+%%Page: 18 19 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(18)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(distributed systems.)SH
+8312 10213 MT
+(Although CLU has been exported to several hundred sites)
+21 W( over the years, it isn't used widely today.  In)22 W
+7200 11356 MT
+(retrospect, it is)
+200 W( clear that we made a number of decisions that followed from our view of CLU as a)199 W
+7200 12499 MT
+(research vehicle but that made it highly unlikely for CLU to succeed in the marketplace.  We did not)
+41 W( take)42 W
+7200 13642 MT
+(any steps to)
+62 W( promote CLU nor to transfer it to a vendor to be developed into a product.  Furthermore, in)61 W
+7200 14785 MT
+(developing our compiler, we emphasized performance over portability, and the compiler is difficult to port)40 W
+7200 15928 MT
+(to new machines.  \050This problem is being corrected now with our new)
+138 W( portable compiler.\051  Finally, we)137 W
+7200 17071 MT
+(were very pure in our approach)
+46 W( to the language; a practical tool might need a number of features we left)47 W
+7200 18214 MT
+(out \050e.g., formatted I/O\051.)SH
+8312 20498 MT
+(In spite of the fact that it is not widely used, I believe)
+67 W( that CLU was successful as a language design.)66 W
+7200 21641 MT
+(CLU is neat and elegant.  It makes it easier)
+95 W( to write correct programs.  Its users like it \050to my surprise,)96 W
+7200 22784 MT
+(they even like the "t$o" notation)
+65 W( because they believe it enhances program correctness and readability\051.)64 W
+7200 23927 MT
+(CLU does not contain features that we would like to discard,)
+31 W( probably because we were so parsimonious)32 W
+7200 25070 MT
+(in what we put in.  Its features have stood the test of time.  It is missing some desirable)
+16 W( features including)15 W
+7200 26213 MT
+(recursive type definitions and a closure mechanism.  \050Some of these features have been put into Argus.\051)SH
+8312 28497 MT
+(CLU has been influential on programming languages both directly and indirectly.  Many of the)
+37 W( features)38 W
+7200 29640 MT
+(of CLU were)
+27 W( novel; in addition to the support for data abstraction through clusters, there are iterators, the)26 W
+7200 30783 MT
+(exception mechanism, and the mechanism for polymetric polymorphism.  These ideas have)
+231 W( had an)232 W
+7200 31926 MT
+(important impact on programming language design and)
+96 W( CLU's novel features have made their way into)95 W
+7200 33069 MT
+(many modern languages.  Among the languages influenced)
+107 W( by CLU are Ada, C++, ML, Modula 3, and)108 W
+7200 34212 MT
+(Trellis/Owl [Schaffert, 1986].)SH
+8312 36496 MT
+(CLU is an object-oriented language in the sense that)
+167 W( it focuses attention on the properties of data)166 W
+7200 37639 MT
+(objects and encourages programs to be developed by considering abstract properties of data.)
+85 W( It)
+449 W( differs)86 W
+7200 38782 MT
+(from what are)
+205 W( more commonly called object-oriented languages in two ways.  The first difference is)204 W
+7200 39925 MT
+(relatively small:  CLU groups operations in types)
+282 W( while object-oriented languages group them with)283 W
+7200 41068 MT
+(objects. The)
+324 W( other is more significant:)
+23 W( CLU)
+323 W( lacks an inheritance mechanism.  Object-oriented languages)22 W
+7200 42211 MT
+(use inheritance for two purposes.  Inheritance is used to achieve "subtype polymorphism", which is the)101 W
+7200 43354 MT
+(ability to design by identifying a generic abstraction and then)
+219 W( defining more specific variants of that)218 W
+7200 44497 MT
+(abstraction as the design progresses \050for example, "windows" with "bordered windows" as a subtype\051.)139 W
+7200 45640 MT
+(Inheritance is also used to develop code by modifying existing)
+310 W( code, and in most object-oriented)309 W
+7200 46783 MT
+(languages, encapsulation can be violated,)
+269 W( because the designer of the subclass can make use of)270 W
+7200 47926 MT
+(implementation details of the)
+64 W( superclass.  Of course, this means that if the superclass implementation is)63 W
+7200 49069 MT
+(changed, all the subclasses will need)
+24 W( to be reimplemented.  I think this use of inheritance is not desirable)25 W
+7200 50212 MT
+(in production programs or in programs developed by many people.)SH
+8312 52496 MT
+(I believe that subtype)
+264 W( polymorphism is a useful program development idea.  If CLU were being)263 W
+7200 53639 MT
+(designed today, I would probably)
+23 W( try to include it.  I am doing such a design in my current research on an)24 W
+7200 54782 MT
+(object-oriented database system called Thor [Liskov, 1992].)SH
+8312 57066 MT
+(The work on CLU, and other related work such as that on Alphard, served to crystallize the idea of a)79 W
+7200 58209 MT
+(data abstraction and make it precise.  As)
+55 W( a result, the notion is widely used as an organizing principle in)56 W
+7200 59352 MT
+(program design and has become a cornerstone of modern programming methodology.)SH
+/Helvetica-Bold SF
+8312 66765 MT
+(Acknowledgements)SH
+/Helvetica SF
+8312 69049 MT
+(I consulted a number of people about historical matters, including Russ Atkinson, Austin)
+107 W( Henderson,)106 W
+7200 70192 MT
+(Jim Horning, Eliot Moss, Greg Nelson, Bob Scheifler, Mary)
+170 W( Shaw, Alan Snyder, and Steve Zilles.  In)171 W
+7200 71335 MT
+(addition, several people gave me)
+175 W( comments about an earlier draft of this paper, including Mark Day,)174 W
+ES
+%%Page: 19 20 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(19)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+7200 7929 MT
+(Dorothy Curtis, John Guttag, Butler Lampson, Eliot Moss, Bob Scheifler, and Alan)
+238 W( Snyder, and the)239 W
+7200 9072 MT
+(referees.)SH
+ES
+%%Page: 20 21 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(20)SH
+46000 XM
+(A History of CLU)SH
+12 SS 
+7200 8075 MT
+(A. People)
+334 W( Who Attended the Harvard Meeting)SH
+10 /Helvetica AF
+8312 9218 MT
+(There were about twenty attendees at the Harvard meeting, including:)
+56 W( Jack)
+388 W( Dennis, Tony Hoare, Joe)55 W
+7200 10361 MT
+(Stoy, Barbara Liskov, Bill Wulf, Mary)
+262 W( Shaw, Steve Zilles, Austin Henderson, James H. Morris, Jim)263 W
+7200 11504 MT
+(Horning, Carl Hewitt, Doug Ross, Ole-Johan Dahl, John)
+125 W( Reynolds, Jim Mitchell, Nico Habermann, and)124 W
+7200 12647 MT
+(Brian Clark.)SH
+12 /Helvetica-Bold AF
+7200 16402 MT
+(B. People)
+334 W( Involved in the CLU Effort)SH
+10 /Helvetica AF
+8312 17545 MT
+(CLU originated in joint work between myself and Steve Zilles, with)
+174 W( Austin Henderson acting as an)175 W
+7200 18688 MT
+(interested observer and critic.  Most of the work on the CLU design)
+53 W( was done by myself, Russ Atkinson,)52 W
+7200 19831 MT
+(Craig Schaffert, and Alan Snyder, but others also contributed to the design, including Toby)
+246 W( Bloom,)247 W
+7200 20974 MT
+(Deepak Kapur, Eliot Moss, Bob Scheifler, and Steve Zilles.  Over the course of the CLU project, the CLU)31 W
+7200 22117 MT
+(group also)
+214 W( included Jack Aiello, Valdis Berzins, Mark Laventhal, and Bob Principato.  In addition to)215 W
+7200 23260 MT
+(members of the CLU group, the CLU meetings in the first two years were attended by)
+20 W( Nimal Amersinghe,)19 W
+7200 24403 MT
+(Jack Dennis, Dave Ellis, Austin Henderson, Paul Kosinski, Joe Stoy, and Eiiti Wada.)SH
+8312 26687 MT
+(The first CLU implementation was done)
+201 W( by Russ, Craig, and Alan.  Eliot Moss and Bob Scheifler)202 W
+7200 27830 MT
+(worked on later)
+144 W( implementations.  Still later, implementation work was done by Paul Johnson, Sharon)143 W
+7200 28973 MT
+(Perl, and Dorothy Curtis.)SH
+12 /Helvetica-Bold AF
+7200 32728 MT
+(C. Project)
+334 W( Schedule)SH
+10 /Helvetica AF
+8312 33871 MT
+(From the time the design started in 1973 until)
+55 W( we had our production compiler in 1980, I estimate that)56 W
+7200 35014 MT
+(approximately fourteen person-years)
+24 W( were spent on CLU.  Until 1978, all of this work was done by myself)23 W
+7200 36157 MT
+(and students.)
+84 W( In)
+447 W( June of 1978, Bob Scheifler became full-time technical staff and in March, 1979, Paul)85 W
+7200 37300 MT
+(Johnson joined the group.  By then, the research group was working on the Argus project)
+59 W( [Liskov,)
+SH( 1983;)58 W
+7200 38443 MT
+(Liskov, 1988].  Bob and Paul worked)
+95 W( on the CLU implementation, but they also spent part of their time)96 W
+7200 39586 MT
+(contributing to our work on Argus.)SH
+8312 41870 MT
+(The work on CLU proceeded in several stages:)SH
+/Helvetica-Bold SF
+8312 44154 MT
+(CLU .5)SH
+/Helvetica SF
+8312 46438 MT
+(The first stage was the design and implementation of a preliminary version of CLU called CLU)
+22 W( .5.  This)21 W
+7200 47581 MT
+(work started in the fall of 1973.  At first language design issues were)
+64 W( considered at meetings of a group)65 W
+7200 48724 MT
+(that included both people interested)
+565 W( in CLU and people working on Jack Dennis' dataflow)564 W
+7200 49867 MT
+(language [Dennis,)
+SH( 1975].  In fact, our)
+125 W( initial plan was to use the dataflow work as a basis for the CLU)126 W
+7200 51010 MT
+(definition [Dennis,)
+SH( 1974], but this plan was dropped sometime in l974.  The two groups began to meet)118 W
+7200 52153 MT
+(separately in)
+136 W( Jan. 1974, although members of the data flow group continued to attend CLU meetings.)137 W
+7200 53296 MT
+(Most of the work between)
+133 W( meetings was done by members of the CLU group, especially Russ, Craig,)132 W
+7200 54439 MT
+(Alan, and myself; Steve and Austin also joined in some of this work.)SH
+8312 56723 MT
+(The goal over the first year was to define a preliminary version of)
+29 W( CLU that could be implemented as a)30 W
+7200 57866 MT
+(proof of concept.  Work on the compiler started in summer 1974 and was done by Alan \050the)
+9 W( parser\051, Russ)8 W
+7200 59009 MT
+(\050the code generator\051, and Craig \050the type checker\051.  At first the code generator produced Lisp; later, for)85 W
+7200 60152 MT
+(political reasons, it)
+265 W( was changed to produce MDL)
+264 W( [Falley,)
+SH( 1977].  \050MDL was a dialect of Lisp that)264 W
+7200 61295 MT
+(contained a richer set of data structures and did some compile-time type checking.\051  The compiler was)101 W
+7200 62438 MT
+(initially implemented in Lisp, but was)
+96 W( soon rewritten in CLU.  Using CLU to implement its own compiler)95 W
+7200 63581 MT
+(was very helpful to us in evaluating its expressive power.  The implementation was done for the PDP-10.)SH
+8312 65865 MT
+(CLU .5 is described in)
+270 W( [Liskov,)
+SH( 1974c] and also in the preliminary reference)
+270 W( manual, which was)271 W
+7200 67008 MT
+(published \050internally only\051 in January 1975)
+70 W( [Snyder,)
+SH( 1975].  It included all of)
+70 W( current CLU \050in some form\051)69 W
+7200 68151 MT
+(except for)
+134 W( exception handling and iterators.  It includes parameterized types \050type definitions that take)135 W
+7200 69294 MT
+(types as parameters and can be instantiated to produce types\051, but the)
+286 W( mechanism required type)285 W
+7200 70437 MT
+(checking at runtime.  At that)
+189 W( point it was unclear to us whether parameterized types really could be)190 W
+7200 71580 MT
+(type-checked statically.)SH
+ES
+%%Page: 21 22 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(21)SH
+46000 XM
+(A History of CLU)SH
+8312 7929 MT
+(CLU)SH
+/Helvetica SF
+8312 10213 MT
+(At the same)
+26 W( time that we were implementing CLU .5, we continued work on the design of CLU.  All the)25 W
+7200 11356 MT
+(features of CLU were designed and integrated into the language by the)
+323 W( end of 1976.  A paper)324 W
+7200 12499 MT
+(documenting CLU)
+366 W( at this stage appeared in early 1976)
+365 W( [Liskov,)
+SH( 1976] and another one in early)365 W
+7200 13642 MT
+(1977 [Liskov,)
+SH( 1977c].  After we felt that we understood every part of CLU,)
+235 W( we spent most of 1977)236 W
+7200 14785 MT
+(reviewing the design and made lots of small changes, e.g., to)
+15 W( the syntax.  As we went along, we changed)14 W
+7200 15928 MT
+(the compiler to match the language.  The CLU reference)
+159 W( manual was published in July 1978)
+160 W( [Liskov,)SH
+7200 17071 MT
+(1978a].)SH
+8312 19355 MT
+(In 1977,)
+138 W( we reimplemented the compiler so that it generated instructions in macro-assembler rather)137 W
+7200 20498 MT
+(than MDL, leading to)
+239 W( both faster runtime execution and faster compilation.  \050MDL had a very slow)240 W
+7200 21641 MT
+(compiler and we found the time taken to do double compilation)15 W
+/Symbol SF
+35379 XM
+(\276)SH
+/Helvetica SF
+36672 XM
+(from CLU to MDL to)
+15 W( assembler)14 W
+/Symbol SF
+50819 XM
+(\276)SH
+/Helvetica SF
+52111 XM
+(very)SH
+7200 22784 MT
+(annoying.\051 Going)
+416 W( directly to assembler meant)
+69 W( that we had to write our own standalone runtime system,)70 W
+7200 23927 MT
+(including the garbage collector.  In addition, we had to provide our own debugger.  In doing the move)
+35 W( we)34 W
+7200 25070 MT
+(designed new implementation techniques for iterators, exception handling, and parameterized)
+100 W( modules;)101 W
+7200 26213 MT
+(these are described in)
+334 W( [Liskov,)
+SH( 1978b].  Bob Scheifler)
+334 W( did the compiler front end, Russ Atkinson)333 W
+7200 27356 MT
+(implemented the runtime system \050as macros\051 and the debugger,)
+230 W( and Eliot Moss wrote the garbage)231 W
+7200 28499 MT
+(collector.)SH
+/Helvetica-Bold SF
+8312 30783 MT
+(Finishing Up)SH
+/Helvetica SF
+8312 33067 MT
+(We did a final pass at the language design during 1979.  We had quite)
+16 W( a bit of user experience by then)15 W
+7200 34210 MT
+(and we added some features that users had)
+21 W( requested, most notably the "resignal" statement \050this is part)22 W
+7200 35353 MT
+(of our exception mechanism\051, and "own" data.  Our last)
+103 W( design note appeared in July, 1979.  The final)102 W
+7200 36496 MT
+(version of the reference manual was published in October 1979 [Liskov, 1979c; Liskov, 1984].)SH
+8312 38780 MT
+(The compiler was changed to accept the new features,)
+48 W( and also to produce machine code rather than)49 W
+7200 39923 MT
+(macros; the compiler produced code for Dec System 20.  Only at this point did we provide static)265 W
+7200 41066 MT
+(instantiation of parameterized modules \050in the linker, written)
+125 W( by Paul Johnson\051; earlier implementations)126 W
+7200 42209 MT
+(had used a dynamic approach, in which information about the parameters was passed to)
+146 W( the code at)145 W
+7200 43352 MT
+(runtime. We)
+336 W( also finally provided an intermodule type-checking mechanism \050see Section 3.11\051.  By 1980)30 W
+7200 44495 MT
+(we had a high quality compiler that could be exported to other groups with confidence.)SH
+8312 46779 MT
+(Later we retargeted the compiler for Vaxes)
+105 W( and still later for M68000 machines \050Sharon Perl did this)104 W
+7200 47922 MT
+(port\051. Today)
+322 W( we are moving CLU again, but this time we are changing the)
+22 W( compiler to generate C so that)23 W
+7200 49065 MT
+(it will be easy to port; Dorothy Curtis is doing this work.)SH
+ES
+%%Page: 22 23 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(22)SH
+46000 XM
+(A History of CLU)SH
+13 SS 
+27095 8148 MT
+(References)SH
+10 /Helvetica AF
+8312 10681 MT
+([Aiello, 1974])SH
+9424 11824 MT
+(Aiello, Jack,)47 W
+/Helvetica-Oblique SF
+15131 XM
+(An Investigation of Current Language Support for the Data Requirements of)
+47 W( Structured)46 W
+11092 12967 MT
+(Programming,)SH
+/Helvetica SF
+18069 XM
+(Technical Memo MIT/LCS/TM-51,)
+420 W( MIT)
+1120 W( Laboratory for Computer Science,)421 W
+11092 14110 MT
+(Cambridge, MA,  September 1974.)SH
+8312 15982 MT
+([Anantharaman, 1989])SH
+9424 17125 MT
+(Anantharaman, S., J. Hsieng, and J.)
+255 W( Mzali,  SbReve2: A Term Rewriting Laboratory with AC-)254 W
+11092 18268 MT
+(Unfailing Completion, in)494 W
+/Helvetica-Oblique SF
+23411 XM
+(Proceedings of the 3rd International Conference on Rewriting)495 W
+11092 19411 MT
+(Techniques and Applications)SH
+/Helvetica SF
+(, 1989.)
+278 W( Lecture Notes in Computer Science, 355, Springer-Verlag.)SH
+8312 21283 MT
+([Arkko, 1989])SH
+9424 22426 MT
+(Arkko, J., V. Hirvisalo, J. Kuusela, E. Nuutila and M. Tamminen,)45 W
+/Helvetica-Oblique SF
+38429 XM
+(XE Reference Manual \050XE Version)44 W
+9980 23569 MT
+(1.0)SH
+/Helvetica SF
+(\051, 1989.)
+278 W( Dept. of Computer Science, Helsinki University of Technology, Helsinki, Finland.)SH
+8312 25441 MT
+([Atkinson, 1975])SH
+9424 26584 MT
+(Atkinson, Russell,)385 W
+/Helvetica-Oblique SF
+18419 XM
+(Toward More General Iteration Methods in CLU,)385 W
+/Helvetica SF
+42733 XM
+(CLU Design Note 54,)385 W
+11092 27727 MT
+(Programming Methodology Group,)
+310 W( MIT Laboratory for Computer Science, Cambridge, MA,)309 W
+11092 28870 MT
+(September 1975.)SH
+8312 30742 MT
+([Bacon, 1988a])SH
+9424 31885 MT
+(Bacon J., and K. Hamilton,)
+71 W( Distributed)
+421 W( Computing with RPC: The Cambridge Approach, in Barton,)72 W
+11092 33028 MT
+(M., et)
+214 W( al., eds.,)213 W
+/Helvetica-Oblique SF
+18782 XM
+(Proceedings of IFIPS Conference on Distributed Processing)213 W
+/Helvetica SF
+(, North Holland,)213 W
+11092 34171 MT
+(1988.)SH
+8312 36043 MT
+([Bacon, 1988b])SH
+9424 37186 MT
+(Bacon J., I. Leslie, and)
+29 W( R. Needham,  Distributed Computing with a Processor Bank, in)30 W
+/Helvetica-Oblique SF
+48442 XM
+(Proceedings)SH
+11092 38329 MT
+(of Workshop on Distributed Computing)176 W
+/Helvetica SF
+(, Berlin:)
+176 W( 1988.)
+628 W( Also Springer Verlag Lecture Notes in)175 W
+11092 39472 MT
+(Computer Science, 433, 1989.)SH
+8312 41344 MT
+([Balzer, 1967])SH
+9424 42487 MT
+(Balzer, Robert M.,  Dataless Programming, in)SH
+/Helvetica-Oblique SF
+29819 XM
+(Fall Joint Computer Conference)SH
+/Helvetica SF
+(, 1967.)278 W
+8312 44359 MT
+([Berzins, 1979])SH
+9424 45502 MT
+(Berzins, Valdis,)729 W
+/Helvetica-Oblique SF
+18051 XM
+(Abstract Model Specifications for Data Abstractions,)729 W
+/Helvetica SF
+45712 XM
+(Technical Report)730 W
+11092 46645 MT
+(MIT/LCS/TR-221, MIT)
+278 W( Laboratory for Computer Science, Cambridge, MA,  July 1979.)SH
+8312 48517 MT
+([Cardelli, 1988])SH
+9424 49660 MT
+(Cardelli, Luca,  A Semantics of Multiple Inheritance,)315 W
+/Helvetica-Oblique SF
+35120 XM
+(Information and Computation,)315 W
+/Helvetica SF
+49516 XM
+(76, 1988,)314 W
+9980 50803 MT
+(138-164.)SH
+8312 52675 MT
+([Chambers, 1990])SH
+9424 53818 MT
+(Chambers, Craig, and David Ungar,  Iterative Type Analysis and Extended)
+264 W( Message Splitting:)265 W
+11092 54961 MT
+(Optimizing Dynamically-Typed Object-Oriented Programs, in)201 W
+/Helvetica-Oblique SF
+39159 XM
+(Proc. of the)
+201 W( ACM SIGPLAN '90)200 W
+11092 56104 MT
+(Conference on Programming Language Design and Implementation)SH
+/Helvetica SF
+(, June)
+278 W( 1990.)SH
+8312 57976 MT
+([Clark, 1985])SH
+9424 59119 MT
+(Clark, David,)
+325 W( The)
+929 W( Structuring of Systems Using Upcalls, in)326 W
+/Helvetica-Oblique SF
+39023 XM
+(Proceedings of the Tenth ACM)326 W
+11092 60262 MT
+(Symposium on Operating Systems Principles)SH
+/Helvetica SF
+(, Orcas Island, WA: ACM 1985.)SH
+8312 62134 MT
+([Cooper, 1987])SH
+9424 63277 MT
+(Cooper, R.,  Pilgrim: A Debugger for Distributed Systems, in)4 W
+/Helvetica-Oblique SF
+36306 XM
+(Proceedings of IEEE 7th ICDCS)4 W
+/Helvetica SF
+(, Berlin:)4 W
+11092 64420 MT
+(1987.)SH
+8312 66292 MT
+([Craft, 1983])SH
+9424 67435 MT
+(Craft, D.,)
+194 W( Resource)
+667 W( Management in a Decentralised System,)195 W
+/Helvetica-Oblique SF
+38576 XM
+(Operating Systems Review,)195 W
+/Helvetica SF
+51776 XM
+(17:5,)SH
+11092 68578 MT
+(June l983, 11-19.)SH
+8312 70450 MT
+([Dennis, 1974])SH
+9424 71593 MT
+(Dennis, Jack,)
+87 W( and Barbara Liskov,)86 W
+/Helvetica-Oblique SF
+25306 XM
+(Semantic Foundations for Structured Programming)86 W
+/Helvetica SF
+(, Proposal to)86 W
+ES
+%%Page: 23 24 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(23)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+11092 7929 MT
+(National Science Foundation,  1974.)SH
+8312 9801 MT
+([Dennis, 1975])SH
+9424 10944 MT
+(Dennis, Jack,)359 W
+/Helvetica-Oblique SF
+16422 XM
+(A First Version of a Data Flow)
+359 W( Procedure Language,)360 W
+/Helvetica SF
+43111 XM
+(Project MAC Technical)360 W
+11092 12087 MT
+(Memorandum 66,  Cambridge, MA:  MIT Laboratory for)
+223 W( Computer Science, May l975. Also)222 W
+11092 13230 MT
+(published in)50 W
+/Helvetica-Oblique SF
+16806 XM
+(Proceedings of Symposium on Programming)50 W
+/Helvetica SF
+(, Institut de Programmation, University)51 W
+11092 14373 MT
+(of Paris, Paris, France, April l974, 241-271.)SH
+8312 16245 MT
+([Dijkstra, 1968a])SH
+9424 17388 MT
+(Dijkstra, Edsger W.,  Go To Statement Considered Harmful,)180 W
+/Helvetica-Oblique SF
+37775 XM
+(Communications of the ACM,)180 W
+/Helvetica SF
+51776 XM
+(11:3,)SH
+11092 18531 MT
+(March 1968, 147-148.)SH
+8312 20403 MT
+([Dijkstra, 1968b])SH
+9424 21546 MT
+(Dijkstra, Edsger W.,  The Structure)
+52 W( of the "THE"-multiprogramming System,)53 W
+/Helvetica-Oblique SF
+43668 XM
+(Communications of the)53 W
+11092 22689 MT
+(ACM,)SH
+/Helvetica SF
+13870 XM
+(11:5, May 1968, 341-346.)SH
+8312 24561 MT
+([Dijkstra, 1969])SH
+9424 25704 MT
+(Dijkstra, Edsger W.,  Notes on)
+191 W( Structured Programming,  in)190 W
+/Helvetica-Oblique SF
+37782 XM
+(Structured Programming)190 W
+/Helvetica SF
+(, Academic)190 W
+11092 26847 MT
+(Press, 1969.)SH
+8312 28719 MT
+([Earley, 1971])SH
+9424 29862 MT
+(Earley, Jay,  Toward an)
+179 W( Understanding of Data Structures,)180 W
+/Helvetica-Oblique SF
+37218 XM
+(Communications of the ACM,)180 W
+/Helvetica SF
+51220 XM
+(14:10,)SH
+11092 31005 MT
+(October 1971, 617-627.)SH
+8312 32877 MT
+([Falley, 1977])SH
+9424 34020 MT
+(Falley, Stuart W., and Greg)
+279 W( Pfister,)278 W
+/Helvetica-Oblique SF
+26880 XM
+(MDL - Primer and Manual)278 W
+/Helvetica SF
+(, MIT Laboratory for Computer)278 W
+11092 35163 MT
+(Science, Cambridge, MA,  1977.)SH
+8312 37035 MT
+([Garland, 1990])SH
+9424 38178 MT
+(Garland, Stephen, John Guttag, and James Horning,  Debugging Larch)
+439 W( Shared Language)440 W
+9980 39321 MT
+(Specifications,)SH
+/Helvetica-Oblique SF
+16705 XM
+(IEEE Transactions on Software Engineering,)SH
+/Helvetica SF
+36770 XM
+(16:9, September 1990, 1044-1057.)SH
+8312 41193 MT
+([Goguen, 1975])SH
+9424 42336 MT
+(Goguen, J. A., J. W. Thatcher,)
+210 W( E. G. Wagner, and J. B. Wright,  Abstract Data-types as Initial)209 W
+11092 43479 MT
+(Algebras and Correctness of Data Representations, in)45 W
+/Helvetica-Oblique SF
+35641 XM
+(Proceedings of Conference on Computer)46 W
+11092 44622 MT
+(Graphics, Pattern Recognition and Data Structure)SH
+/Helvetica SF
+(, May)
+278 W( 1975.)SH
+8312 46494 MT
+([Goodenough, 1975])SH
+9424 47637 MT
+(Goodenough, John,  Exception Handling: Issues and a Proposed Notation,)88 W
+/Helvetica-Oblique SF
+43600 XM
+(Communications of the)87 W
+11092 48780 MT
+(ACM,)SH
+/Helvetica SF
+13870 XM
+(18, December 1975, 683-696.)SH
+8312 50652 MT
+([Guttag, 1975])SH
+9424 51795 MT
+(Guttag, John,)69 W
+/Helvetica-Oblique SF
+15844 XM
+(The Specification and Application to)
+69 W( Programming of Abstract Data Types,)70 W
+/Helvetica SF
+49721 XM
+(Technical)SH
+11092 52938 MT
+(Report CSRG-59,  Computer Systems Research Group, University of Toronto, Canada,  1975.)SH
+8312 54810 MT
+([Guttag, 1980])SH
+9424 55953 MT
+(Guttag, John,  Notes on Type Abstraction \050Version)
+56 W( 2\051,)55 W
+/Helvetica-Oblique SF
+33993 XM
+(IEEE Transactions on Software Engineering,)55 W
+/Helvetica SF
+11092 57096 MT
+(SE-6:1, January 1980, 13-23.)SH
+8312 58968 MT
+([Guttag, 1977])SH
+9424 60111 MT
+(Guttag, John,)
+3 W( Abstract)
+286 W( Data Types and the Development of Data Structures,)4 W
+/Helvetica-Oblique SF
+43766 XM
+(Communications of the)4 W
+11092 61254 MT
+(ACM,)SH
+/Helvetica SF
+13946 XM
+(20:6, June l977.)
+76 W( Also)
+429 W( in)75 W
+/Helvetica-Oblique SF
+25350 XM
+(Proceedings of Conference on Data: Abstraction, Definition and)75 W
+11092 62397 MT
+(Structure)SH
+/Helvetica SF
+(, Salt Lake City, UT, March 1976.)SH
+8312 64269 MT
+([Herlihy, 1982])SH
+9424 65412 MT
+(Herlihy, Maurice, and Barbara Liskov,  A Value Transmission Method for Abstract Data)
+32 W( Types,)33 W
+/Helvetica-Oblique SF
+51778 XM
+(ACM)SH
+11092 66555 MT
+(Transactions on Programming Languages and Systems,)SH
+/Helvetica SF
+36325 XM
+(4:4, October 1982, 527-551.)SH
+8312 68427 MT
+([Hoare, 1972])SH
+9424 69570 MT
+(Hoare, C. A. R.,  Proof of Correctness of Data Representations,)SH
+/Helvetica-Oblique SF
+37825 XM
+(Acta Informatica,)SH
+/Helvetica SF
+45606 XM
+(4, 1972, 271-281.)SH
+8312 71442 MT
+([Ichbiah, 1973])SH
+ES
+%%Page: 24 25 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(24)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+9424 7929 MT
+(Ichbiah, Jean, J. Rissen,)
+149 W( and J. Heliard,  The Two-Level Approach to Data Definition and Space)148 W
+11092 9072 MT
+(Management in the LIS System Implementation Language, in)126 W
+/Helvetica-Oblique SF
+39503 XM
+(Proceedings of ACM SIGPLAN-)127 W
+11092 10215 MT
+(SIGOPS Interface Meeting -- Programming Languages-Operating Systems)306 W
+/Helvetica SF
+(, Savannah, GA:)305 W
+11092 11358 MT
+(ACM, April 1973.)SH
+8312 13230 MT
+([Kimura, 1992])SH
+9424 14373 MT
+(Kimura, Izumi,)SH
+/Helvetica-Oblique SF
+16092 XM
+(Private Communication)SH
+/Helvetica SF
+(, 1992.)278 W
+8312 16245 MT
+([Lampson, 1974])SH
+9424 17388 MT
+(Lampson, Butler, James Mitchell, and Edward Satterthwaite,)
+115 W( On)
+510 W( the Transfer of Control Between)116 W
+11092 18531 MT
+(Contexts, in)56 W
+/Helvetica-Oblique SF
+16762 XM
+(Proceedings of Symposium on Programming)56 W
+/Helvetica SF
+(, Institut de Programmation, University)56 W
+11092 19674 MT
+(of Paris, Paris, France:  1974.)SH
+8312 21546 MT
+([Landin, 1964])SH
+9424 22689 MT
+(Landin, Peter,  The Mechanical Evaluation of Expressions,)162 W
+/Helvetica-Oblique SF
+36899 XM
+(Computer Journal,)162 W
+/Helvetica SF
+45726 XM
+(6:4, January)
+162 W( l964,)163 W
+9980 23832 MT
+(308-320.)SH
+8312 25704 MT
+([Levin, 1977])SH
+9424 26847 MT
+(Levin, Roy,)228 W
+/Helvetica-Oblique SF
+15160 XM
+(Program Structures for Exceptional Condition)
+228 W( Handling)227 W
+/Helvetica SF
+(, Ph.D. dissertation, Dept. of)227 W
+11092 27990 MT
+(Computer Science, Carnegie Mellon University, Pittsburgh, PA,  1977.)SH
+8312 29862 MT
+([Liskov, 1972a])SH
+9424 31005 MT
+(Liskov, Barbara,)
+35 W( A)
+350 W( Design Methodology for Reliable Software Systems, in)36 W
+/Helvetica-Oblique SF
+42943 XM
+(Proceedings of Fall Joint)36 W
+11092 32148 MT
+(Computer Conference 41, Part 1)47 W
+/Helvetica SF
+(, IEEE, December 1972. Also published in)47 W
+/Helvetica-Oblique SF
+44958 XM
+(Tutorial on Software)47 W
+11092 33291 MT
+(Design Techniques)SH
+/Helvetica SF
+(, Peter Freeman and A. Wasserman, Eds., IEEE, 1977, 53-61.)SH
+8312 35163 MT
+([Liskov, 1972b])SH
+9424 36306 MT
+(Liskov, Barbara,  The Design of the Venus Operating System,)103 W
+/Helvetica-Oblique SF
+38078 XM
+(Communications of the ACM,)104 W
+/Helvetica SF
+51776 XM
+(15:3,)SH
+11092 37449 MT
+(March 1972.  Also published)
+142 W( in)141 W
+/Helvetica-Oblique SF
+25893 XM
+(Software Systems Principles: A Survey)141 W
+/Helvetica SF
+(, Peter Freeman, SRA)141 W
+11092 38592 MT
+(Associatues, Inc., Chicago 1975, 542-553.)SH
+8312 40464 MT
+([Liskov, 1973a])SH
+9424 41607 MT
+(Liskov, Barbara,  Report of Session on Structured Programming, in)43 W
+/Helvetica-Oblique SF
+39755 XM
+(Proceedings of ACM SIGPLAN-)43 W
+11092 42750 MT
+(SIGOPS Interface Meeting -- Programming Languages-Operating Systems)306 W
+/Helvetica SF
+(, Savannah, GA:)305 W
+11092 43893 MT
+(ACM, April 1973.)SH
+8312 45765 MT
+([Liskov, 1973b])SH
+9424 46908 MT
+(Liskov, Barbara,)
+55 W( Fundamental)
+389 W( Studies Group Progress Report, in)56 W
+/Helvetica-Oblique SF
+39383 XM
+(Project MAC Progress Report X)56 W
+/Helvetica SF
+(,)SH
+11092 48051 MT
+(Cambridge, MA: MIT Laboratory for Computer Science 1973.)SH
+8312 49923 MT
+([Liskov, 1973c])SH
+9424 51066 MT
+(Liskov, Barbara, and Stephen Zilles,)177 W
+/Helvetica-Oblique SF
+26650 XM
+(An Approach to Abstraction,)177 W
+/Helvetica SF
+40087 XM
+(Computation Structures Group)176 W
+11092 52209 MT
+(Memo 88,  MIT Laboratory for Computer Science, Cambridge, MA, September 1973.)SH
+8312 54081 MT
+([Liskov, 1974a])SH
+9424 55224 MT
+(Liskov, Barbara, and Stephen Zilles,  Programming with)
+175 W( Abstract Data Types, in)176 W
+/Helvetica-Oblique SF
+47154 XM
+(Proceedings of)176 W
+11092 56367 MT
+(ACM SIGPLAN Conference on Very High Level Languages)SH
+/Helvetica SF
+(, ACM 1974.)SH
+8312 58239 MT
+([Liskov, 1974b])SH
+9424 59382 MT
+(Liskov, Barbara,  Fundamental Studies Group Progress)
+35 W( Report, in)34 W
+/Helvetica-Oblique SF
+39193 XM
+(Project MAC Progress Report XI)34 W
+/Helvetica SF
+(,)SH
+11092 60525 MT
+(Cambridge, MA: MIT Laboratory for Computer Science 1974.)SH
+8312 62397 MT
+([Liskov, 1974c])SH
+9424 63540 MT
+(Liskov, Barbara,)320 W
+/Helvetica-Oblique SF
+17567 XM
+(A Note)
+320 W( on CLU,)321 W
+/Helvetica SF
+26131 XM
+(Computation Structures Group Memo 112,  Laboratory for)321 W
+11092 64683 MT
+(Computer Science, MIT, Cambridge, MA, November 1974.)SH
+8312 66555 MT
+([Liskov, 1975a])SH
+9424 67698 MT
+(Liskov, Barbara,)134 W
+/Helvetica-Oblique SF
+17195 XM
+(Multiple Implementation of a Type,)134 W
+/Helvetica SF
+33427 XM
+(CLU Design Note 53,)
+134 W( Cambridge,)
+544 W( MA:  MIT)133 W
+11092 68841 MT
+(Laboratory for Computer Science, July 1975.)SH
+8312 70713 MT
+([Liskov, 1975b])SH
+9424 71856 MT
+(Liskov, Barbara,  Fundamental Studies Group)
+32 W( Progress Report, in)33 W
+/Helvetica-Oblique SF
+39173 XM
+(Laboratory for Computer Science)33 W
+ES
+%%Page: 25 26 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(25)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica-Oblique SF
+11092 7929 MT
+(Progress Report XII)SH
+/Helvetica SF
+(, Cambridge, MA: MIT Laboratory for Computer Science 1975.)SH
+8312 9801 MT
+([Liskov, 1976])SH
+9424 10944 MT
+(Liskov, Barbara,  Introduction to CLU,)
+275 W( in)
+827 W( S. A. Schuman, ed.,)274 W
+/Helvetica-Oblique SF
+40176 XM
+(New Directions in Algorithmic)274 W
+11092 12087 MT
+(Languagues 1975)SH
+/Helvetica SF
+(, INRIA, 1976.)SH
+8312 13959 MT
+([Liskov, 1977a])SH
+9424 15102 MT
+(Liskov, Barbara,)
+151 W( Programming)
+582 W( Methodology Group Progress Report, in)152 W
+/Helvetica-Oblique SF
+42803 XM
+(Laboratory for Computer)152 W
+11092 16245 MT
+(Science Progress Report XIV)SH
+/Helvetica SF
+(, Cambridge, MA: MIT Laboratory for Computer Science 1977.)SH
+8312 18117 MT
+([Liskov, 1977b])SH
+9424 19260 MT
+(Liskov, Barbara,)
+151 W( and Alan Snyder,)150 W
+/Helvetica-Oblique SF
+25627 XM
+(Structured Exception Handling,)150 W
+/Helvetica SF
+40139 XM
+(Computation Structures Group)150 W
+11092 20403 MT
+(Memo 155,  MIT Laboratory for Computer Science, Cambridge, MA, December 1977.)SH
+8312 22275 MT
+([Liskov, 1977c])SH
+9424 23418 MT
+(Liskov, Barbara, Alan Snyder, Russell Atkinson, and)
+51 W( J. Craig Schaffert,  Abstraction Mechanisms in)52 W
+9980 24561 MT
+(CLU,)SH
+/Helvetica-Oblique SF
+12661 XM
+(Communications of the ACM,)125 W
+/Helvetica SF
+26443 XM
+(20:8, August 1977, 564-576. Also published as Computation)125 W
+11092 25704 MT
+(Structures Group Memo)
+45 W( 144-1, MIT Laboratory for Computer Science, Cambridge, MA, January)46 W
+9980 26847 MT
+(1977.)SH
+8312 28719 MT
+([Liskov, 1978a])SH
+9424 29862 MT
+(Liskov, Barbara, Russell Atkinson, Toby Bloom, J. Eliot Moss, J.)
+99 W( Craig Schaffert, Robert Scheifler,)98 W
+11092 31005 MT
+(and Alan Snyder,)236 W
+/Helvetica-Oblique SF
+19749 XM
+(CLU Reference Manual,)236 W
+/Helvetica SF
+31461 XM
+(Computation Structures Group)
+236 W( Memo 161,  MIT)237 W
+11092 32148 MT
+(Laboratory for Computer Science, Cambridge, MA, July 1978.)SH
+8312 34020 MT
+([Liskov, 1978b])SH
+9424 35163 MT
+(Liskov, Barbara, Russell Atkinson, and Robert Scheifler,  Aspects)
+385 W( of Implementing CLU, in)384 W
+/Helvetica-Oblique SF
+11092 36306 MT
+(Proceedings of the Annual Conference)SH
+/Helvetica SF
+(, ACM 1978.)SH
+8312 38178 MT
+([Liskov, 1979a])SH
+9424 39321 MT
+(Liskov, Barbara,)80 W
+/Helvetica-Oblique SF
+17087 XM
+(Modular Program Construction Using Abstractions,)81 W
+/Helvetica SF
+40277 XM
+(Computation Structures Group)81 W
+11092 40464 MT
+(Memo 184,  MIT Laboratory for Computer Science, Cambridge, MA, September 1979.)SH
+8312 42336 MT
+([Liskov, 1979b])SH
+9424 43479 MT
+(Liskov, Barbara, and)
+189 W( Alan Snyder,  Exception Handling in CLU,)188 W
+/Helvetica-Oblique SF
+39541 XM
+(IEEE Transactions on Software)188 W
+11092 44622 MT
+(Engineering,)SH
+/Helvetica SF
+16984 XM
+(SE-5:6, November 1979, 546-558.)SH
+8312 46494 MT
+([Liskov, 1979c])SH
+9424 47637 MT
+(Liskov, Barbara, Russell Atkinson, Toby)
+98 W( Bloom, J. Eliot Moss, J. Craig Schaffert, Robert Scheifler,)99 W
+11092 48780 MT
+(and Alan Snyder,)87 W
+/Helvetica-Oblique SF
+19301 XM
+(CLU Reference Manual,)86 W
+/Helvetica SF
+30563 XM
+(Technical Report MIT/LCS/TR-225,  MIT Laboratory)86 W
+11092 49923 MT
+(for Computer Science, Cambridge, MA, October 1979.)SH
+8312 51795 MT
+([Liskov, 1983])SH
+9424 52938 MT
+(Liskov, Barbara,)
+277 W( and Robert Scheifler,  Guardians and Actions: Linguistic Support for Robust,)278 W
+11092 54081 MT
+(Distributed Programs,)151 W
+/Helvetica-Oblique SF
+21341 XM
+(ACM Transactions on)
+151 W( Programming Languages and Systems,)150 W
+/Helvetica SF
+50126 XM
+(5:3, July)150 W
+11092 55224 MT
+(1983, 381-404.)SH
+8312 57096 MT
+([Liskov, 1984])SH
+9424 58239 MT
+(Liskov, Barbara, Russell Atkinson, Toby)
+98 W( Bloom, J. Eliot Moss, J. Craig Schaffert, Robert Scheifler,)99 W
+11092 59382 MT
+(and Alan Snyder,)158 W
+/Helvetica-Oblique SF
+19951 XM
+(CLU Reference)
+158 W( Manual)157 W
+/Helvetica SF
+(, Springer-Verlag, 1984. Also published as Lecture)157 W
+11092 60525 MT
+(Notes in Computer Science 114, G. Goos and J. Hartmanis, Eds., Springer-Verlag, 1981.)SH
+8312 62397 MT
+([Liskov, 1986a])SH
+9424 63540 MT
+(Liskov, Barbara, and John Guttag,)194 W
+/Helvetica-Oblique SF
+26320 XM
+(Abstraction and Specification in Program Development)195 W
+/Helvetica SF
+(, MIT)195 W
+11092 64683 MT
+(Press and McGraw Hill, 1986.)SH
+8312 66555 MT
+([Liskov, 1986b])SH
+9424 67698 MT
+(Liskov, Barbara, and John Guttag,)SH
+/Helvetica-Oblique SF
+24877 XM
+(Chapter 4, Data Abstraction)SH
+/Helvetica SF
+(, 1986.)
+278 W( In [Liskov 1986a].)SH
+8312 69570 MT
+([Liskov, 1988])SH
+9424 70713 MT
+(Liskov, Barbara,  Distributed Programming in Argus,)223 W
+/Helvetica-Oblique SF
+34326 XM
+(Communications of the)
+223 W( ACM,)222 W
+/Helvetica SF
+48498 XM
+(31:3, March)222 W
+11092 71856 MT
+(1988, 300-312.)SH
+ES
+%%Page: 26 27 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(26)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+8312 7929 MT
+([Liskov, 1992])SH
+9424 9072 MT
+(Liskov, Barbara,)150 W
+/Helvetica-Oblique SF
+17227 XM
+(Preliminary Design of)
+150 W( the Thor Object-Oriented Database System,)151 W
+/Helvetica SF
+47999 XM
+(Programming)SH
+11092 10215 MT
+(Methodology Group Memo 74,  MIT Laboratory for Computer Science, Cambridge,)
+107 W( MA, March)106 W
+11092 11358 MT
+(1992.)SH
+8312 13230 MT
+([McKeag, 1973])SH
+9424 14373 MT
+(McKeag, R. M.,)
+407 W( Programming)
+1094 W( Languages for Operating Systems, in)408 W
+/Helvetica-Oblique SF
+44014 XM
+(Proceedings of ACM)408 W
+11092 15516 MT
+(SIGPLAN-SIGOPS Interface Meeting)
+807 W( -- Programming Languages-Operating Systems)806 W
+/Helvetica SF
+(,)SH
+11092 16659 MT
+(Savannah, GA: ACM, April 1973.)SH
+8312 18531 MT
+([Milner, 1990])SH
+9424 19674 MT
+(Milner, Robin, M.)
+19 W( Tofte, and R. Harper,)20 W
+/Helvetica-Oblique SF
+27366 XM
+(The Definition of Standard ML)20 W
+/Helvetica SF
+(, Cambridge, MA:  MIT Press,)20 W
+9980 20817 MT
+(1990.)SH
+8312 22689 MT
+([Mitchell, 1978])SH
+9424 23832 MT
+(Mitchell, James G., W. Maybury, and)
+376 W( R. Sweet,)375 W
+/Helvetica-Oblique SF
+33658 XM
+(Mesa Language Manual,)375 W
+/Helvetica SF
+46067 XM
+(Technical Report)375 W
+11092 24975 MT
+(CSL-78-1, Xerox)
+278 W( Research Center, Palo Alto, CA, February 1978.)SH
+8312 26847 MT
+([Morris, 1973a])SH
+9424 27990 MT
+(Morris, James H., Jr.,  Protection in Programming Languages,)107 W
+/Helvetica-Oblique SF
+38063 XM
+(Communications of)
+107 W( the ACM,)108 W
+/Helvetica SF
+51776 XM
+(16:1,)SH
+11092 29133 MT
+(January 1973, 15-21.)SH
+8312 31005 MT
+([Morris, 1973b])SH
+9424 32148 MT
+(Morris, James H., Jr.,)
+213 W( Types)
+702 W( are Not Sets, in)212 W
+/Helvetica-Oblique SF
+31775 XM
+(Proceedings of the Symposium on Principles of)212 W
+11092 33291 MT
+(Programming Languages)SH
+/Helvetica SF
+(, ACM 1973.)SH
+8312 35163 MT
+([Moss, 1978])SH
+9424 36306 MT
+(Moss, J. Eliot,)25 W
+/Helvetica-Oblique SF
+16002 XM
+(Abstract Data Types in Stack Based Languages,)26 W
+/Helvetica SF
+37973 XM
+(Technical Report MIT/LCS/TR-190,)26 W
+11092 37449 MT
+(Cambridge, MA:  MIT Laboratory for Computer Science, February 1978.)SH
+8312 39321 MT
+([Palme, 1973])SH
+9424 40464 MT
+(Palme, Jacob,)22 W
+/Helvetica-Oblique SF
+16082 XM
+(Protected Program Modules in Simula 67,)22 W
+/Helvetica SF
+34999 XM
+(FOAP Report)
+22 W( C8372-M3 \050E5\051,  Stockholm,)21 W
+11092 41607 MT
+(Sweden: Research)
+332 W( Institute)
+27 W( of National Defence, Division of Research Planning and Operations)28 W
+11092 42750 MT
+(Research, July l973.)SH
+8312 44622 MT
+([Parnas, 1971])SH
+9424 45765 MT
+(Parnas, David,  Information Distribution Aspects of Design Methodology,  in)167 W
+/Helvetica-Oblique SF
+44886 XM
+(Proceedings of IFIP)166 W
+11092 46908 MT
+(Congress)SH
+/Helvetica SF
+(, North Holland Publishing Co., 1971.)SH
+8312 48780 MT
+([Parnas, 1972a])SH
+9424 49923 MT
+(Parnas, David,  On the Criteria to be Used in Decomposing Systems into)
+24 W( Modules,)25 W
+/Helvetica-Oblique SF
+46554 XM
+(Communications)SH
+11092 51066 MT
+(of the ACM,)SH
+/Helvetica SF
+16650 XM
+(15:12, December 1972, 1053-1058.)SH
+8312 52938 MT
+([Parnas, 1972b])SH
+9424 54081 MT
+(Parnas, David,  A Technique for the Specification of Software)
+533 W( Modules with Examples,)532 W
+/Helvetica-Oblique SF
+11092 55224 MT
+(Communications of the ACM,)SH
+/Helvetica SF
+24374 XM
+(15, May 1972, 330-336.)SH
+8312 57096 MT
+([PMG, 1979a])SH
+9424 58239 MT
+(Programming Methodology Group,)311 W
+/Helvetica-Oblique SF
+25974 XM
+(CLU Design Notes)312 W
+/Helvetica SF
+(, MIT Laboratory for Computer Science,)312 W
+11092 59382 MT
+(Cambridge, MA,  1973-1979.)SH
+8312 61254 MT
+([PMG, 1979b])SH
+9424 62397 MT
+(Programming Methodology Group,)251 W
+/Helvetica-Oblique SF
+25794 XM
+(CLU Design Meeting Minutes)251 W
+/Helvetica SF
+(, MIT Laboratory for Computer)250 W
+11092 63540 MT
+(Science, Cambridge, MA,  1974-1979.)SH
+8312 65412 MT
+([Randell, 1969])SH
+9424 66555 MT
+(Randell, Brian,  Towards a Methodology of)
+69 W( Computer Systems Design,  in P. Naur and B. Randell,)70 W
+11092 67698 MT
+(ed.,)SH
+/Helvetica-Oblique SF
+13038 XM
+(Software Engineering)SH
+/Helvetica SF
+(, NATO Science Committee, 1969.)SH
+8312 69570 MT
+([Ross, 1970])SH
+9424 70713 MT
+(Ross, Douglas T.,  Uniform Referents: An Essential Property for a Software Engineering)
+28 W( Language,)27 W
+11092 71856 MT
+(in J. T. Tou, ed.,)SH
+/Helvetica-Oblique SF
+18596 XM
+(Software Engineering)SH
+/Helvetica SF
+(, Academic Press, 1970.)SH
+ES
+%%Page: 27 28 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(27)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+8312 7929 MT
+([Schaffert, 1978])SH
+9424 9072 MT
+(Schaffert, J. Craig,)43 W
+/Helvetica-Oblique SF
+18112 XM
+(A Formal Definition of CLU,)43 W
+/Helvetica SF
+30775 XM
+(Technical Report MIT/LCS/TR-193,)
+43 W( MIT)
+366 W( Laboratory)44 W
+11092 10215 MT
+(for Computer Science, Cambridge, MA,  January 1978.)SH
+8312 12087 MT
+([Schaffert, 1986])SH
+9424 13230 MT
+(Schaffert, Craig, T. Cooper, B. Bullis, M. Kilian and C.)
+164 W( Wilpolt,  An Introduction to Trellis/Owl, in)163 W
+/Helvetica-Oblique SF
+11092 14373 MT
+(Proceedings of ACM Conference on Object Oriented Systems, Languages and)
+211 W( Applications)212 W
+/Helvetica SF
+(,)SH
+11092 15516 MT
+(Portland, OR:  September 1986.)SH
+8312 17388 MT
+([Scheifler, 1976])SH
+9424 18531 MT
+(Scheifler, Robert,)121 W
+/Helvetica-Oblique SF
+17669 XM
+(An Analysis of Inline)
+121 W( Substitution for a Structured Programming Language)120 W
+/Helvetica SF
+(, S.B.)120 W
+11092 19674 MT
+(Thesis, Department of Electrical)
+55 W( Engineering and Computer Science, Massachusetts Institute of)56 W
+11092 20817 MT
+(Technology, Cambridge, MA,  1976.)SH
+8312 22689 MT
+([Scheifler, 1977])SH
+9424 23832 MT
+(Scheifler, Robert,  An Analysis of Inline Substitution for a Structured Programming)
+278 W( Language,)277 W
+/Helvetica-Oblique SF
+11092 24975 MT
+(Commuications of the ACM,)SH
+/Helvetica SF
+23818 XM
+(20:9, September 1977.)SH
+8312 26847 MT
+([Scheifler, 1978])SH
+9424 27990 MT
+(Scheifler, Robert,)288 W
+/Helvetica-Oblique SF
+18003 XM
+(A Denotational Semantics of CLU,)288 W
+/Helvetica SF
+34895 XM
+(Technical Report MIT/LCS/TR-201,  MIT)289 W
+11092 29133 MT
+(Laboratory for Computer Science, Cambridge, MA,  June 1978.)SH
+8312 31005 MT
+([Shaw, 1976])SH
+9424 32148 MT
+(Shaw, Mary, William Wulf, and Ralph London, Carnegie Mellon)
+200 W( University and USC Information)199 W
+11092 33291 MT
+(Sciences Institute Technical Reports,)311 W
+/Helvetica-Oblique SF
+29065 XM
+(Abstraction and Verification in Alphard:)
+311 W( Iteration and)312 W
+9980 34434 MT
+(Generators)SH
+/Helvetica SF
+(, August 1976.)SH
+8312 36306 MT
+([Shaw, 1977])SH
+9424 37449 MT
+(Shaw, Mary, William Wulf, and Ralph London,  Abstraction and Verification in Alphard:)
+40 W( Defining and)39 W
+11092 38592 MT
+(Specifying Iteration and Generators,)SH
+/Helvetica-Oblique SF
+27378 XM
+(Communications of the ACM,)SH
+/Helvetica SF
+40660 XM
+(20:8, August 1977.)SH
+8312 40464 MT
+([Shaw, 1981])SH
+9424 41607 MT
+(Shaw, Mary, ed.,)SH
+/Helvetica-Oblique SF
+17205 XM
+(ALPHARD: Form and Content)SH
+/Helvetica SF
+(, Springer-Verlag, 1981.)SH
+8312 43479 MT
+([Snyder, 1975])SH
+9424 44622 MT
+(Snyder, Alan and Russell Atkinson,)205 W
+/Helvetica-Oblique SF
+26345 XM
+(Preliminary CLU)
+205 W( Reference Manual,)206 W
+/Helvetica SF
+43450 XM
+(CLU Design Note 39,)206 W
+11092 45765 MT
+(Programming Methodology Group,)
+310 W( MIT Laboratory for Computer Science, Cambridge, MA,)309 W
+11092 46908 MT
+(January 1975.)SH
+8312 48780 MT
+([Spitzen, 1975])SH
+9424 49923 MT
+(Spitzen, Jay, and Ben Wegbreit,  The Verification and)
+410 W( Synthesis of Data Structures,)411 W
+/Helvetica-Oblique SF
+51999 XM
+(Acta)SH
+11092 51066 MT
+(Informatica,)SH
+/Helvetica SF
+16594 XM
+(4, 1975, 127-144.)SH
+8312 52938 MT
+([Wegbreit, 1972])SH
+9424 54081 MT
+(Wegbreit, Ben, D. Brosgol, G. Holloway, Charles Prenner, and Jay Spitzen,)209 W
+/Helvetica-Oblique SF
+45291 XM
+(ECL Programmer's)208 W
+9980 55224 MT
+(Manual)SH
+/Helvetica SF
+(, Center for Research)
+300 W( in Computing Technology, Harvard University, Cambridge, MA,)301 W
+11092 56367 MT
+(1972.)SH
+8312 58239 MT
+([Wegbreit, 1973])SH
+9424 59382 MT
+(Wegbreit, Ben,)5 W
+/Helvetica-Oblique SF
+16325 XM
+(The Treatment of Data Types in EL1)4 W
+/Helvetica SF
+(, Center for Research in Computing Technology,)4 W
+11092 60525 MT
+(Harvard University, Cambridge, MA,  1973.)SH
+8312 62397 MT
+([Wirth, 1971])SH
+9424 63540 MT
+(Wirth, Niklaus,  Program Development by Stepwise)
+37 W( Refinement,)38 W
+/Helvetica-Oblique SF
+38342 XM
+(Communications of the ACM,)38 W
+/Helvetica SF
+51776 XM
+(14:4,)SH
+11092 64683 MT
+(April l971, 221-227.)SH
+8312 66555 MT
+([Wulf, 1973])SH
+9424 67698 MT
+(Wulf, William, and)
+270 W( Mary Shaw,  Global Variables Considered Harmful,)269 W
+/Helvetica-Oblique SF
+43291 XM
+(SIGPLAN Notices,)269 W
+/Helvetica SF
+52332 XM
+(8:2,)SH
+11092 68841 MT
+(February 1973, 28-34.)SH
+8312 70713 MT
+([Wulf, 1976])SH
+9424 71856 MT
+(Wulf, William, Ralph London, and Mary Shaw,  An Introduction to the Construction and Verification)
+SH( of)1 W
+ES
+%%Page: 28 29 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30044 XM
+(28)SH
+46000 XM
+(A History of CLU)SH
+/Helvetica SF
+11092 7929 MT
+(Alphard Programs,)359 W
+/Helvetica-Oblique SF
+20424 XM
+(IEEE Transactions on Software Engineering,)358 W
+/Helvetica SF
+42279 XM
+(SE-2:4, December 1976,)358 W
+11092 9072 MT
+(253-265. Presented at Second International Conference on)
+308 W( Software Engineering, October)309 W
+9980 10215 MT
+(1976.)SH
+8312 12087 MT
+([Zilles, 1973])SH
+9424 13230 MT
+(Zilles, Stephen,  Procedural Encapsulation: A Linguistic Protection Technique, in)187 W
+/Helvetica-Oblique SF
+47144 XM
+(Proceedings of)186 W
+11092 14373 MT
+(ACM SIGPLAN-SIGOPS Interface Meeting -- Programming Languages-Operating Systems)334 W
+/Helvetica SF
+(,)SH
+11092 15516 MT
+(Savannah, GA: ACM, April 1973.)SH
+8312 17388 MT
+([Zilles, 1974a])SH
+9424 18531 MT
+(Zilles, Stephen,  Computation)
+103 W( Structures Group Progress Report, in)102 W
+/Helvetica-Oblique SF
+40524 XM
+(Project MAC Progress Report)102 W
+11092 19674 MT
+(XI)SH
+/Helvetica SF
+(, Cambridge, MA: MIT Laboratory for Computer Science 1974.)SH
+8312 21546 MT
+([Zilles, 1974b])SH
+9424 22689 MT
+(Zilles, Stephen,)215 W
+/Helvetica-Oblique SF
+17024 XM
+(Working Notes on Error Handling,)215 W
+/Helvetica SF
+33326 XM
+(CLU Design Note 6,)
+215 W( Cambridge,)
+709 W( MA:  MIT)216 W
+11092 23832 MT
+(Laboratory for Computer Science, January 1974.)SH
+8312 25704 MT
+([Zilles, 1975])SH
+9424 26847 MT
+(Zilles, Stephen,)93 W
+/Helvetica-Oblique SF
+16780 XM
+(Algebraic Specification of Data Types,)93 W
+/Helvetica SF
+34419 XM
+(Computation Structures Group)
+93 W( Memo 119,)92 W
+11092 27990 MT
+(Cambridge, MA:  MIT Laboratory for Computer Science, March l975.)SH
+ES
+%%Page: i 30 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30461 XM
+(i)SH
+46000 XM
+(A History of CLU)SH
+12 SS 
+25533 8075 MT
+(Table of Contents)SH
+11 SS 
+9036 9319 MT
+(1. Introduction)SH
+53388 XM
+(0)SH
+9036 10563 MT
+(2. Data Abstraction)SH
+53388 XM
+(1)SH
+10 SS 
+11092 11712 MT
+(2.1. Related Early Work)SH
+53444 XM
+(3)SH
+11092 12861 MT
+(2.2. Programming Methodology)SH
+53444 XM
+(4)SH
+11 SS 
+9036 14105 MT
+(3. CLU)SH
+53388 XM
+(5)SH
+10 SS 
+11092 15254 MT
+(3.1. Language Goals)SH
+53444 XM
+(5)SH
+11092 16403 MT
+(3.2. The Design Process)SH
+53444 XM
+(6)SH
+11092 17552 MT
+(3.3. Design Principles)SH
+53444 XM
+(8)SH
+11092 18701 MT
+(3.4. Implementing Abstract Types)SH
+53444 XM
+(9)SH
+11092 19850 MT
+(3.5. Semantic Model)SH
+52888 XM
+(10)SH
+11092 20999 MT
+(3.6. Issues Related to Safety)SH
+52888 XM
+(11)SH
+11092 22148 MT
+(3.7. Parametric Polymorphism)SH
+52888 XM
+(13)SH
+11092 23297 MT
+(3.8. Other Uniformity Issues)SH
+52888 XM
+(13)SH
+11092 24446 MT
+(3.9. Exception Handling)SH
+52888 XM
+(15)SH
+11092 25595 MT
+(3.10. Iterators)SH
+52888 XM
+(16)SH
+11092 26744 MT
+(3.11. Putting Programs Together)SH
+52888 XM
+(16)SH
+11 SS 
+9036 27988 MT
+(4. Evaluation)SH
+52776 XM
+(17)SH
+9036 29232 MT
+(A. People)
+306 W( Who Attended the Harvard Meeting)SH
+52776 XM
+(20)SH
+9036 30476 MT
+(B. People)
+306 W( Involved in the CLU Effort)SH
+52776 XM
+(20)SH
+9036 31720 MT
+(C. Project)
+306 W( Schedule)SH
+52776 XM
+(20)SH
+ES
+%%Page: ii 31 
+BS
+0 SI
+10 /Helvetica-Bold AF
+7200 4329 MT
+(B. Liskov)SH
+30322 XM
+(ii)SH
+46000 XM
+(A History of CLU)SH
+12 SS 
+26465 8075 MT
+(List of Figures)SH
+11 SS 
+9036 9319 MT
+(Figure 3-1:)
+SH( The)
+612 W( Structure of a Cluster)SH
+53388 XM
+(9)SH
+ES
+%%Trailer
+%%Pages: 31 
+%%DocumentFonts: Helvetica Helvetica-Bold Helvetica-Oblique Symbol

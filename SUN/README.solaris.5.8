@@ -1,0 +1,16 @@
+In solaris 5.8, the garbage collector has trouble figuring out
+where the bottom of the stack is.  So far the following fix has
+been useful.
+
+Add the following line
+		GC_stackbottom = 0xffbf0000;
+to
+		pclu/code/gc/test.c
+		pclu/code/gc/cord/cordtest.c
+		pclu/code/sysasm/Opt/util.c
+at the beginning of the main routine.
+I think cordtest.c also needs
+	extern char *GC_stackbottom;
+
+Dorothy Curtis
+8/23/00
